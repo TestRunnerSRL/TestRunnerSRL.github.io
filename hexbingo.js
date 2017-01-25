@@ -256,8 +256,8 @@ function GenerateBoard() {
   
   txtRNG = document.getElementById("rngseed");
   rngseed = txtRNG.value
-  if (rngseed == undefined) {
-    rngseed = '';//Math.floor(Math.random() * 1000000);
+  if (rngseed == undefined || rngseed == '') {
+    rngseed = Math.floor(Math.random() * 1000000).toString();
   }
   txtRNG.value = rngseed;
 

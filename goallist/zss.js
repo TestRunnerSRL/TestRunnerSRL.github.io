@@ -1,163 +1,200 @@
+var bingoListVersion = "2.1";
 var bingoList = [];
-//Made by Indykenobi
-  
-bingoList[1] = [  { name: "Practice Sword", types: []},
-  { name: "Four Skyloft Chests", types: ["chests"]},
-  { name: "Sailcloth", types: []},
-  { name: "Finish the Sword Tutorial", types: []}
+
+bingoList[1] = [
+  { name: "Bring Mia to Horwell", types: ["Skyloft"] },
+  { name: "Four Skyloft Chests", types: ["Skyloft", "Chests"] },
+  { name: "Glittering Spores", types: ["Bottles", "Faron"] },
+  { name: "Revitalizing Potion", types: ["Bottles", "Potions"] },
+  { name: "Bottled Water", types: ["Bottles"] },
 ];
-bingoList[2] = [  { name: "Revitalizing Potion", types: ["potions"]},
-  { name: "Bottled Water", types: []},
-  { name: "Heart Potion", types: ["potions"]},
-  { name: "Guardian Potion", types: ["potions"]},
-  { name: "Hot Pumpkin Soup", types: ["pumpkin"]},
-  { name: "Cold Pumpkin Soup", types: ["pumpkin"]}
+bingoList[2] = [
+  { name: "Heart Potion", types: ["Potions"] },
+  { name: "Practice Sword", types: ["Skyloft"] },
+  { name: "Chandelier Heart Piece", types: ["Hearts", "Pumpkin"] },
+  { name: "Complete a ringer skydive", types: ["Sky"] },
+  { name: "Mushroom Spores", types: ["Bottles", "Faron"] },
 ];
-bingoList[3] = [  { name: "Chandelier HP", types: ["hearts", "pumpkin"]},
-  { name: "Floria Waterfall Bird Statue", types: ["statues"]},
-  { name: "Kill three guays in the sky", types: []},
-  { name: "Complete a ringer skydive", types: []},
-  { name: "Glittering Spores", types: []},
-  { name: "Mushroom Spores", types: []}
+bingoList[3] = [
+  { name: "Guardian Potion", types: ["Bottles", "Potions"] },
+  { name: "Hot Pumpkin Soup", types: ["Bottles"] },
+  { name: "Kill three guays in the sky", types: ["Sky"] },
+  { name: "Beedle's Gratitude Crystal", types: ["Crystals"] },
+  { name: "10 Blessed Butterflies", types: ["Bugs"] },
 ];
-bingoList[4] = [  {name: "3 Extra Wallets", types: ["rupees"]},
-  { name: "Heart Dowsing Target", types: []},
-  { name: "Life Tree Seedling", types: []}
+bingoList[4] = [
+  { name: "Heart Dowsing Target", types: ["Misc"] },  
+  { name: "Floria Waterfall Bird Statue", types: ["Faron"] },
+  { name: "Sailcloth", types: ["Sailcloth", "Skyloft"] },
+  { name: "Finish the Sword Tutorial", types: ["Skyloft"] },
+  { name: "Finish with 6 Hearts", types: ["Restriction", "Hearts"] },
 ];
-bingoList[5] = [  { name: "10 Blessed Butterflies", types: ["treasure"]},
-  { name: "5 Starry Fireflies", types: ["treasure"]},
-  { name: "5 Skyloft Mantises", types: ["treasure"]},
-  { name: "Sleep in Zelda's Bed", types: ["hearts", "beds"]}
+bingoList[5] = [
+  { name: "3 Extra Wallets", types: ["Rupees"] },
+  { name: "5 Skyloft Mantises", types: ["Bugs"] },
+  { name: "5 Starry Fireflies", types: ["Bugs"] },
+  { name: "Sleep in Zelda's Bed", types: ["Skyloft", "Sailcloth"] },
+  { name: "Win the Wing Ceremony Twice", types: ["BiT", "Skyloft"] },
 ];
-bingoList[6] = [  { name: "10 Amber Relics", types: ["treasure"]},
-  { name: "50 Deku Hornets", types: ["treasure"]},
-  { name: "3 Blue Bird Feathers", types: ["treasure"]},
-  { name: "Banded Shield", types: ["shields"]},
-  { name: "5 Bird Feathers", types: ["treasure"]},
-  { name: "Open 15 chests", types: ["chests"]}
+bingoList[6] = [
+  { name: "3 Blue Bird Feathers", types: ["Treasures"] },
+  { name: "5 Bird Feathers", types: ["Treasures"] },
+  { name: "Banded Shield", types: ["Shields"] },
+  { name: "10 Amber Relics", types: ["Treasures"] },
+  { name: "50 Deku Hornets", types: ["Bugs"] },
+  { name: "10 Woodland Rhino Beetles", types: ["Bugs"] },
 ];
-bingoList[7] = [  { name: "6 Pouch Slots", types: ["pouch"]},
-  { name: "8 Faron Bird Statues", types: ["statues"]},
-  { name: "5 Faron Goddess Cubes", types: ["cubes"]},
-  { name: "5 Goddess Cubes", types: ["cubes"]},
-  { name: "500 Rupees", types: ["rupees"]},
-  { name: "4 Heart Pieces", types: ["hearts"]}
+bingoList[7] = [
+  { name: "6 Pouch Slots", types: ["Pouch", "Rupees"] },
+  { name: "4 Heart Pieces", types: ["Hearts"] },
+  { name: "8 Faron Bird Statues", types: ["Statues", "Faron"] },
+  { name: "5 Faron Goddess Cubes", types: ["Cubes", "Faron"] },
+  { name: "5 Goddess Cubes", types: ["Cubes"] },
+  { name: "500 Rupees", types: ["Rupees"] },
 ];
-bingoList[8] = [  { name: "10 scattered crystals", types: ["crystals"]},
-  { name: "Batreaux's HP", types: ["crystals", "hearts"]},
-  { name: "3 Bottles", types: ["crystals"]},
-  { name: "15 Gratitude Crystals", types: ["crystals"]},
-  { name: "Orielle's Gratitude Crystals", types: ["crystals"]},
-  { name: "Parrow's Gratitude Crystals", types: ["crystals"]}
+bingoList[8] = [
+  { name: "10 Scattered Gratitude Crystals", types: ["Crystals"] },
+  { name: "3 Bottles", types: ["Bottles"] },
+  { name: "Batreaux's Heart Piece", types: ["Hearts", "Crystals"] },
+  { name: "Orielle's Gratitude Crystals", types: ["Crystals"] },
+  { name: "15 Gratitude Crystals", types: ["Crystals"] },
+  { name: "Parrow's Gratitude Crystals", types: ["Crystals"] },
 ];
-bingoList[9] = [  { name: "Skyview Dungeon Map", types: ["maps"]},
-  { name: "Two Unused Small Keys in Skyview", types: []},
-  { name: "Open all Skyview Chests", types: ["chests"]}
+bingoList[9] = [
+  { name: "Skyview Dungeon Map", types: ["Map", "Skyview"] },
+  { name: "Defeat Ghirahim with a dart", types: ["Skyview"] },
+  { name: "Skyview Zero Dungeon Map", types: ["Map", "Skyview", "BiT"] },
+  { name: "Open all Skyview Temple Chests", types: ["Chests", "Skyview"] },
+  { name: "Two Unused Small Keys", types: ["BiT", "Skyview"] },
+  { name: "Both Faron Heart Pieces", types: ["Faron", "Hearts"] },
 ];
-bingoList[10] = [  { name: "3 Unique Shields", types: ["shields"]},
-  { name: "60 Deku Seeds", types: []},
-  { name: "Farore's Courage", types: ["thunderhead"]},
-  { name: "Solve the Isle of Songs Puzzle", types: ["thunderhead"]},
-  { name: "28+ cuts at Bamboo Island", types: []},
-  { name: "Sleep in every Knight Academy Bed", types: ["beds"]}
+bingoList[10] = [
+  { name: "Sleep in every Knight Academy Bed", types: ["Misc", "Sailcloth"] },
+  { name: "28+ cuts at Bamboo Island", types: ["Misc"] },
+  { name: "4 Eldin Bird Statues", types: ["Statues", "Eldin"] },
+  { name: "Eldin Heart Piece", types: ["Hearts", "Eldin"] },  
+  { name: "Farore's Courage", types: ["BiT"] },
+  { name: "Enter Isle of Songs", types: ["BiT"] },
 ];
-bingoList[11] = [  { name: "4 Eldin Bird Statues", types: ["statues"]},
-  { name: "Eldin Heart Piece", types: ["hearts"]},
-  { name: "Treasure Medal", types: ["medals"]},
-  { name: "3 Medals", types: ["medals"]},
-  { name: "10 Volcanic Ladybugs", types: ["treasure"]},
-  { name: "5 Eldin Ore", types: ["treasure"]}
+bingoList[11] = [
+  { name: "10 Volcanic Ladybugs", types: ["Bugs"] },
+  { name: "60 Deku Seeds", types: ["Ammo"] },
+  { name: "5 Eldin Ore", types: ["Treasures"] },
+  { name: "3 Medals", types: ["Medals"] },
+  { name: "Treasure Medal", types: ["Medals"] },
+  { name: "3 Unique Shields", types: ["Shields"] },
 ];
-bingoList[12] = [  { name: "Revitalizing Potion+", types: ["potions"]},
-  { name: "Heart Potion+", types: ["potions"]},
-  { name: "Fairy in a Bottle", types: []},
-  { name: "3 Unique Potions", types: ["potions"]},
-  { name: "Guardian Potion+", types: ["potions"]},
-  { name: "3 Unique Potion Upgrades", types: ["potions"]}
+bingoList[12] = [
+  { name: "Fairy in a Bottle", types: ["Bottles"] },
+  { name: "Heart Potion+", types: ["Potions"] },
+  { name: "Guardian Potion+", types: ["Potions"] },
+  { name: "Revitalizing Potion+", types: ["Potions"] },
+  { name: "3 Unique Potion Upgrades", types: ["Potions", "Bottles"] },
+  { name: "3 Unique Potions", types: ["Potions", "Bottles"] },
 ];
-bingoList[13] = [  { name: "6 Eldin Goddess Cubes", types: ["cubes"]},
-  { name: "Peatrice's Gratitude Crystals", types: ["crystals"]},
-  { name: "25 Gratitude Crystals", types: ["crystals"]},
-  { name: "Clear a Thrill Digger Board", types: []},
-  { name: "Zelda's Heart Piece", types: ["hearts", "beds"]},
-  { name: "Zelda's Gratitude Crystal", types: ["crystals", "hearts", "beds"]}
+bingoList[13] = [
+  { name: "Zelda's Heart Piece", types: ["End", "Hearts", "Sailcloth"] },
+  { name: "25 Gratitude Crystals", types: ["Crystals"] },
+  { name: "Zelda's Gratitude Crystal", types: ["End", "Crystals", "Sailcloth"] },
+  { name: "Peatrice's Gratitude Crystals", types: ["Crystals"] },
+  { name: "Clear a Thrill Digger Board", types: ["Eldin"] },
+  { name: "6 Eldin Goddess Cubes", types: ["Cubes", "Eldin"] },
 ];
-bingoList[14] = [  { name: "Earth Temple Dungeon Map", types: ["maps"]},
-  { name: "Open all Earth Temple Chests", types: ["chests"]},
-  { name: "5 Lizard Tails", types: ["treasure"]},
-  { name: "Finish Kina's Pumpkin Carrying Game", types: ["pumpkin"]},
-  { name: "Both Faron HPs", types: ["hearts"]}
+bingoList[14] = [
+  { name: "Life Tree Seedling", types: ["BiT"] },
+  { name: "Open all Earth Temple Chests", types: ["Chests", "Earth"] },
+  { name: "Kina's Pumpkin Carrying Game", types: ["Pumpkin"] },
+  { name: "Earth Temple Dungeon Map", types: ["Map", "Earth"] },
+  { name: "5 Lizard Tails", types: ["Earth"] },
+  { name: "Destroy all of Scaldera's Rocks", types: ["Earth"] },
 ];
-bingoList[15] = [  { name: "10 Goddess Cubes", types: ["cubes"]},
-  { name: "7 Pouch Slots", types: ["pouch"]},
-  { name: "1000 Rupees", types: ["rupees"]},
-  { name: "Bug Medal", types: ["medals"]},
-  { name: "30 Bombs", types: []},
-  { name: "Reinforced Shield", types: ["shields"]}
+bingoList[15] = [
+  { name: "7 Pouch Slots", types: ["Pouch", "Rupees"] },
+  { name: "1000 Rupees", types: ["Rupees"] },
+  { name: "10 Goddess Cubes", types: ["Cubes"] },
+  { name: "30 Bombs", types: ["Ammo"] },
+  { name: "Bug Medal", types: ["Medals"] },
+  { name: "Reinforced Shield", types: ["Shields"] },
 ];
-bingoList[16] = [  { name: "Catch one of every bug", types: ["treasure"]},
-  { name: "Obtain one of every treasure", types: ["treasure"]},
-  { name: "5 Lanayru Goddess Cubes", types: ["cubes"]},
-  { name: "Braced Shield", types: ["shields"]},
-  { name: "Both Life Medals", types: ["medals", "hearts", "rupees"]},
-  { name: "3 Unique Wooden Shields", types: ["shields"]}
+bingoList[16] = [
+  { name: "Obtain one of every treasure", types: ["Treasures"] },
+  { name: "3 Unique Wooden Shields", types: ["Shields"] },
+  { name: "Catch one of every bug", types: ["Bugs"] },
+  { name: "Braced Shield", types: ["Shields"] },
+  { name: "Big Bug Net", types: ["Upgrade"] },
+  { name: "Quick Beetle", types: ["Upgrade"] },
 ];
-bingoList[17] = [  { name: "Lanayru Heart Piece", types: ["hearts"]},
-  { name: "Five map beacons", types: []},
-  { name: "Obtain a Heart drop", types: ["cubes", "medals"]},
-  { name: "Big Bug Net", types: []},
-  { name: "Quick Beetle", types: []}
+bingoList[17] = [
+  { name: "Updated Lanaryu Desert Map", types: ["Lanayru"] },
+  { name: "Five map beacons", types: ["Lanayru"] },
+  { name: "Duplicate an Ampilus Egg", types: ["Lanayru"] },
+  { name: "Obtain a Recovery Heart", types: ["Misc"] },
+  { name: "Both Life Medals", types: ["Medals"] },
+  { name: "Lanayru Heart Piece", types: ["Hearts"] },
+  { name: "5 Lanayru Goddess Cubes", types: ["Lanayru", "Cubes"] },
 ];
-bingoList[18] = [  { name: "Cursed Medal", types: ["crystals", "medals"]},
-  { name: "15 Goddess Cubes", types: ["cubes"]},
-  { name: "4 Medals", types: ["medals"]},
-  { name: "12 Hearts", types: ["hearts"]},
-  { name: "1500 Rupees", types: ["rupees"]},
-  { name: "8 Heart Pieces", types: ["hearts"]}
+bingoList[18] = [
+  { name: "Cursed Medal", types: ["Medals", "Crystals"] },
+  { name: "15 Goddess Cubes", types: ["Cubes"] },
+  { name: "4 Medals", types: ["Medals"] },
+  { name: "12 Hearts", types: ["Hearts"] },
+  { name: "1500 Rupees", types: ["Rupees"] },
+  { name: "8 Heart Pieces", types: ["Hearts"] },
 ];
-bingoList[19] = [  { name: "Heart Potion++", types: ["potions"]},
-  { name: "Revitalizing Potion++", types: ["potions"]},
-  { name: "Fortified Shield", types: ["shields"]},
-  { name: "4 Unique Shields", types: ["shields"]},
-  { name: "Large Bomb Bag", types: []},
-  { name: "Large Slingshot Satchel", types: []}
+bingoList[19] = [
+  { name: "Fortified Shield", types: ["Shields"] },
+  { name: "Heart Potion++", types: ["Potions"] },
+  { name: "Revitalizing Potion++", types: ["Potions"] },
+  { name: "Large Slingshot Satchel", types: ["Ammo", "Upgrade"] },
+  { name: "4 Unique Shields", types: ["Shields"] },
+  { name: "Large Bomb Bag", types: ["Ammo", "Upgrade"] },
 ];
-bingoList[20] = [  { name: "LMF Dungeon Map", types: ["maps"]},
-  { name: "3 Dungeon Maps", types: ["maps"]},
-  { name: "Mallara's Gratitude Crystals", types: ["crystals"]},
-  { name: "Turn a windmill", types: []},
-  { name: "Open all LMF chests", types: ["chests"]}
+bingoList[20] = [
+  { name: "Baby's Rattle", types: ["Misc"] },
+  { name: "Mallara's Gratitude Crystals", types: ["Crystals"] },
+  { name: "Turn a windmill", types: ["Misc"] },
+  { name: "LMF Dungeon Map", types: ["Map", "LMF"] },
+  { name: "3 Dungeon Maps", types: ["Map"] },
+  { name: "3 Goddess Plumes", types: ["Treasures"] },
 ];
-bingoList[21] = [  { name: "Tough Beetle", types: []},
-  { name: "5 Unique Shields", types: ["shields"]},
-  { name: "Scattershot", types: []},
-  { name: "3 Unique Iron Shields", types: ["shields"]},
-  { name: "16 Goddess Cubes", types: ["cubes"]},
-  { name: "11 Heart Pieces", types: ["hearts"]}
+bingoList[21] = [
+  { name: "16 Goddess Cubes", types: ["Cubes"] },
+  { name: "11 Heart Pieces", types: ["Hearts"] },
+  { name: "3 Unique Iron Shields", types: ["Shields"] },
+  { name: "5 Unique Shields", types: ["Shields"] },
+  { name: "Tough Beetle", types: ["Upgrade"] },
+  { name: "Scattershot", types: ["Upgrade", "Harp", "BiT"] },
 ];
-bingoList[22] = [  { name: "Goddess Harp", types: []},
-  { name: "Ballad of the Goddess", types: []},
-  { name: "8 Lanayru Bird Statues", types: ["statues"]},
-  { name: "20 Bird Statues", types: ["statues"]},
-  { name: "Temple of Time Bird Statue", types: ["statues"]},
-  { name: "Stamina Potion", types: ["potions"]}
+bingoList[22] = [
+  { name: "20 Bird Statues", types: ["Statues", "Harp"] },
+  { name: "Open all LMF Chests", types: ["LMF", "Chests"] },
+  { name: "Goddess Harp", types: ["Harp"] },
+  { name: "Stamina Potion", types: ["Potions"] },
+  { name: "Temple of Time Bird Statue", types: ["Statues", "Harp"] },
+  { name: "8 Lanayru Bird Statues", types: ["Statues", "Harp"] },
 ];
-bingoList[23] = [  { name: "6 Medals", types: ["medals", "rupees", "hearts"]},
-  { name: "1900 Rupees", types: ["rupees"]},
-  { name: "8 Pouch Slots", types: ["rupees", "pouch"]},
-  { name: "40 Gratitude Crystals", types: ["crystals"]},
-  { name: "Beedle's Heart Piece", types: ["rupees"]},
-  { name: "Open 30 chests", types: ["chests"]}
+bingoList[23] = [
+  { name: "8 Pouch Slots", types: ["Pouch", "Rupees"] },
+  { name: "6 Medals", types: ["Medals"] },
+  { name: "1900 Rupees", types: ["Rupees"] },
+  { name: "Beedle's Heart Piece", types: ["Hearts", "Rupees"] },
+  { name: "40 Gratitude Crystals", types: ["Crystals", "Imp"] },
+  { name: "Open 40 Chests", types: ["Chests"] },
 ];
-bingoList[24] = [  { name: "Stamina Potion+", types: ["potions"]},
-  { name: "Water Dragon's Scale", types: ["thunderhead"]},
-  { name: "Defeat the Imprisoned", types: []},
-  { name: "Summon a Gossip Stone", types: []}
+bingoList[24] = [
+  { name: "Summon a Gossip Stone", types: ["Harp"] },
+  { name: "Get Fairies from a Goddess Wall", types: ["BiT", "Harp"] },
+  { name: "Stamina Potion+", types: ["Potions"] },
+  { name: "Water Dragon's Scale", types: ["Harp", "BiT", "Scale"] },
+  { name: "Reseal the Imprisoned", types: ["Harp", "Imp"] },
+  { name: "Ballad of the Goddess", types: ["Harp"] },
 ];
-bingoList[25] = [  { name: "Cawlin's Letter", types: ["crystals"]},
-  { name: "Talk to Yerbal", types: ["thunderhead"]},
-  { name: "Air Potion", types: ["potions"]},
-  { name: "Sacred Shield", types: ["shields"]},
-  { name: "Repair Scrapper", types: ["thunderhead"]},
-  { name: "Draw a Triforce on a Goddess Wall", types: []}
+bingoList[25] = [
+  { name: "Talk to Yerbal", types: ["Harp", "BiT"] },
+  { name: "Repair Scrapper", types: ["Harp", "Imp"] },
+  { name: "Cawlin's Letter", types: ["Harp"] },
+  { name: "Air Potion", types: ["Potions", "Scale", "BiT"] },
+  { name: "Sacred Shield", types: ["Shields", "Imp", "Harp"] },
+  { name: "Lake Floria Goddess Cube", types: ["Harp", "BiT", "Scale"] },  
+  { name: "All 10 Faron Bird Statues", types: ["Harp", "BiT", "Scale", "Statues"] },
 ];
