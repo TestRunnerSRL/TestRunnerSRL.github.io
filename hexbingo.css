@@ -1,4 +1,24 @@
-/* `agons */
+
+.SelectedGreenHex {
+  background: repeating-radial-gradient(
+    circle,
+    #008000,
+    #008000 10px,
+    #006000 10px, 
+    #006000 20px
+  );
+}
+.SelectedRedHex {
+  background: repeating-radial-gradient(
+    circle,
+    #800000,
+    #800000 10px,
+    #600000 10px, 
+    #600000 20px
+  );
+}
+
+/* Hexagons */
 #hexGrid {
   overflow: hidden;
   width: 90vw; 
@@ -15,7 +35,6 @@
   min-width: 500px;
   min-height: 520px;
 }
-
 
 .hex {
   position: relative;
