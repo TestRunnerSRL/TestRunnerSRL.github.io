@@ -115,17 +115,17 @@ function hexLClick(hex) {
     addClass(hex, 'SelectedGreenHex');
   } else {
     removeClass(hex, 'SelectedGreenHex');
-    removeClass(hex, 'SelectedRedHex');
   }
+  removeClass(hex, 'SelectedRedHex');
   CheckBadRow();
 }
 function hexRClick(hex) {
   if (!hasClass(hex, 'SelectedRedHex')) {
     addClass(hex, 'SelectedRedHex');
   } else {
-    removeClass(hex, 'SelectedGreenHex');
     removeClass(hex, 'SelectedRedHex');
   }
+  removeClass(hex, 'SelectedGreenHex');
   CheckBadRow();
   return false;
 }
