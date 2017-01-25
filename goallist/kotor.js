@@ -232,5 +232,3 @@ bingoList[25] = [
   { name: "Heart of the Guardian", types: ["Credits"] },
   { name: "Kill the Trandoshan Smugglers", types: ["Misc"] },
 ];
-
-$(function () { bingo(bingoList, 5, bingoListVersion); });
