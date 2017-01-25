@@ -259,7 +259,8 @@ function GenerateBoard() {
   if (rngseed == undefined || rngseed == '') {
     rngseed = Math.floor(Math.random() * 1000000).toString();
   }
-  txtRNG.value = rngseed;
+  txtRNG.value = '';
+  document.getElementById("seeddisplay").innerText = rngseed;
 
 
   window.history.replaceState(null, null,  
