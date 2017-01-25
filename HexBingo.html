@@ -1,0 +1,166 @@
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data:">
+<html>
+  <title>HexBingo 1.2</title>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="hexbingo.css">
+  </head>
+
+  <script src="seedrandom.js"></script>
+  <script src="hexbingo.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+  <body bgcolor="black">
+    <div height="30px" align="center" style="padding-right: 8%; padding-left: 2%; padding-bottom: 10px; min-width: 500px">
+      <Span style="padding: 5px; font-size: 1.5em">
+        <Span class="TextR">H</Span><Span class="TextO">e</Span><Span class="TextY">x</Span><Span class="TextG">B</Span><Span class="TextB">i</Span><Span class="TextP">n</Span><Span class="TextR">g</Span><Span class="TextO">o</Span>
+      </Span>
+      <select id="bingogame" onchange="LoadGoalListJS()">
+        <option value="oot.js">Zelda: Ocarina of Time</option>
+        <option value="mm.js">Zelda: Majora's Mask</option>
+        <option value="sm.js">Super Metroid</option>
+        <option value="sm64.js">Super Mario 64</option>
+        <option value="smw.js">Super Mario World</option>
+        <option value="pkmnrb.js">Pokemon Red/Blue</option>
+        <option value="pkmnc.js">Pokemon Crystal</option>
+        <option value="dk64.js">Donkey Kong 64</option>
+        <option value="sotn.js">Castlevania: SotN</option>
+        <option value="zss.js">Zelda: Skyward Sword</option>
+        <option value="rabi.js">Rabi-Ribi</option>
+        <option value="sms.js">Super Mario Sunshine</option>
+        <option value="mzm.js">Metroid Zero Mission</option>
+        <option value="URL">URL</option>
+        <option value="JSON">JSON Paste</option>
+      </select>
+      <input id="rngseed" type="text" name="rngseed" size="10" placeholder="Enter Seed">
+      <button type="submit" onclick="GenerateBoard()">Generate Board</button>>
+    </div>
+    <div style="overflow-y: hidden;: hidden; position:relative; border: 1px solid grey; height: 93vmin; min-width: 500px; min-height: 520px">
+      <div style="position:absolute; width:100%">
+        <ul id="hexheaderGrid">
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderBP" onclick="RowClick('BP')" onmouseout="ClearHover()" onmouseover="RowHover('BP')">
+            <span class="headerspan">
+              <span class="TextP">P-</span><span class="TextB">-B</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderGP" onclick="RowClick('GP')" onmouseout="ClearHover()" onmouseover="RowHover('GP')">
+            <span class="headerspan">
+              <span class="TextP">P-</span><span class="TextG">-G</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderRG" onclick="RowClick('RG')" onmouseout="ClearHover()" onmouseover="RowHover('RG')">
+            <span class="headerspan">
+              <span class="TextR">R-</span><span class="TextG">-G</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderRY" onclick="RowClick('RY')" onmouseout="ClearHover()" onmouseover="RowHover('RY')">
+            <span class="headerspan">
+              <span class="TextR">R-</span><span class="TextY">-Y</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderOY" onclick="RowClick('OY')" onmouseout="ClearHover()" onmouseover="RowHover('OY')">
+            <span class="headerspan">
+              <span class="TextO">O-</span><span class="TextY">-Y</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderRO" onclick="RowClick('RO')" onmouseout="ClearHover()" onmouseover="RowHover('RO')">
+            <span class="headerspan">
+              <span class="TextO">O-</span><span class="TextR">-R</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderOP" onclick="RowClick('OP')" onmouseout="ClearHover()" onmouseover="RowHover('OP')">
+            <span class="headerspan">
+              <span class="TextO">O-</span><span class="TextP">-P</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderYP" onclick="RowClick('YP')" onmouseout="ClearHover()" onmouseover="RowHover('YP')">
+            <span class="headerspan">
+              <span class="TextY">Y-</span><span class="TextP">-P</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderYB" onclick="RowClick('YB')" onmouseout="ClearHover()" onmouseover="RowHover('YB')">
+            <span class="headerspan">
+              <span class="TextY">Y-</span><span class="TextB">-B</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderGB" onclick="RowClick('GB')" onmouseout="ClearHover()" onmouseover="RowHover('GB')">
+            <span class="headerspan">
+              <span class="TextG">G-</span><span class="TextB">-B</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderRP" onclick="RowClick('RP')" onmouseout="ClearHover()" onmouseover="RowHover('RP')">
+            <span class="headerspan">
+              <span class="TextP">P-</span><span class="TextR">-R</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderRB" onclick="RowClick('RB')" onmouseout="ClearHover()" onmouseover="RowHover('RB')">
+            <span class="headerspan">
+              <span class="TextB">B-</span><span class="TextR">-R</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderOB" onclick="RowClick('OB')" onmouseout="ClearHover()" onmouseover="RowHover('OB')">
+            <span class="headerspan">
+              <span class="TextB">B-</span><span class="TextO">-O</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderOG" onclick="RowClick('OG')" onmouseout="ClearHover()" onmouseover="RowHover('OG')">
+            <span class="headerspan">
+              <span class="TextG">G-</span><span class="TextO">-O</span>
+            </span></a>
+          </li>
+          <li class="hexheader">
+            <a class="hexheaderIn" id="hexheaderYG" onclick="RowClick('YG')" onmouseout="ClearHover()" onmouseover="RowHover('YG')">
+            <span class="headerspan">
+              <span class="TextG">G-</span><span class="TextY">-Y</span>
+            </span></a>
+          </li>
+        </ul>
+      </div>
+      <div style="position:absolute; width:100%">
+        <ul id="hexGrid">
+          <li class="hex"><a id="hex1" class="hexIn EndR" onmouseover="SetHover(1)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex2" class="hexIn EndR" onmouseover="SetHover(2)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex3" class="hexIn EndO" onmouseover="SetHover(3)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+
+          <li class="hex"><a id="hex4" class="hexIn EndP" onmouseover="SetHover(4)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex5" class="hexIn MidPR" onmouseover="SetHover(5)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex6" class="hexIn MidRO" onmouseover="SetHover(6)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex7" class="hexIn EndO" onmouseover="SetHover(7)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+
+          <li class="hex"><a id="hex8" class="hexIn EndP" onmouseover="SetHover(8)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex9" class="hexIn MidBP" onmouseover="SetHover(9)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex10" class="hexIn CenterW" onmouseover="SetHover(10)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex11" class="hexIn MidOY" onmouseover="SetHover(11)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex12" class="hexIn EndY" onmouseover="SetHover(12)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+
+          <li class="hex"><a id="hex13" class="hexIn EndB" onmouseover="SetHover(13)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex14" class="hexIn MidGB" onmouseover="SetHover(14)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex15" class="hexIn MidYG" onmouseover="SetHover(15)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex16" class="hexIn EndY" onmouseover="SetHover(16)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+
+          <li class="hex"><a id="hex17" class="hexIn EndB" onmouseover="SetHover(17)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex18" class="hexIn EndG" onmouseover="SetHover(18)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex19" class="hexIn EndG" onmouseover="SetHover(19)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="color:grey; padding-left: 20px">
+      Version 1.2 Developed by TestRunner 2017
+    </div>
+  </body>
+</html>
