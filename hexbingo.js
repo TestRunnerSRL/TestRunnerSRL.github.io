@@ -242,8 +242,9 @@ function GenerateBoard() {
   }
 
   for (i = 1; i <= 19; i++) {
-    hex = document.getElementById("hex" + i);
-    hex.style.backgroundColor = '';
+      hex = document.getElementById("hex" + i);    
+      removeClass(hex, 'SelectedGreenHex');
+      removeClass(hex, 'SelectedRedHex');
   }
   for (var key in rowList) {
     if (rowList.hasOwnProperty(key)) {
