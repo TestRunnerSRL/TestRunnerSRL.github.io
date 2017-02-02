@@ -338,9 +338,6 @@ function CalculateStatistic(arr) {
   };
 }
 
-function CalculateSTD(arr, mean) {
-}
-
 var bingoBoard = []; //the board itself stored as an array first
 function GenerateBoard() {
   for (i = 1; i <= 19; i++) {
@@ -737,10 +734,9 @@ BingoGenerator.prototype.chooseGoalForPosition = function(position) {
     return false;
   }
 
-  var stats = CalculateStatistic(bestGoals.map(function(x) {
-    return x.synergy;
+  var cutoff = 0.1 + Math.min.apply(Math, bestGoals.map(function(x) { 
+    return x.synergy
   }));
-  var cutoff = Math.min(stats.mean, stats.min + (stats.std / 2));
   bestGoals = bestGoals.filter(function(goal) {
     return goal.synergy < cutoff;
   }).shuffled();
@@ -936,21 +932,10 @@ BingoGenerator.prototype.calculateEffectiveSynergyForSquares = function(synergie
   for (var type in effectiveTypeSynergies) {
     var synergies = effectiveTypeSynergies[type];
     for (var i = 0; i < synergies.length; i++) {
-      /*
-      if (typeof synergies[i] == "function") {
-        continue;
-      }
-      */
-
       if (synergies[i] > this.maximumIndividualSynergy) {
         return TOO_MUCH_SYNERGY;
       }
-
-      //if (isNaN(synergies[i])) {
-      //  rowSynergy += 1;
-      //} else {
-        rowSynergy += synergies[i];
-      //}
+      rowSynergy += synergies[i];
     }
   }
 
