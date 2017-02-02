@@ -803,7 +803,7 @@ BingoGenerator.prototype.checkLine = function(position, potentialGoal) {
     potentialSquare.desiredTime = this.bingoBoard[position].desiredTime;
     var potentialRow = this.getOtherSquares(row, position);
     potentialRow.push(potentialSquare);
-    var effectiveRowSynergy = this.evaluateSquares(potentialRow);
+    var effectiveRowSynergy = this.evaluateSquares(potentialRow, row);
     maxSynergy = Math.max(maxSynergy, effectiveRowSynergy);
     minSynergy = Math.min(minSynergy, effectiveRowSynergy);
     weightedSynergy += Math.pow(effectiveRowSynergy, 2);
@@ -816,7 +816,7 @@ BingoGenerator.prototype.checkLine = function(position, potentialGoal) {
   };
 };
 
-BingoGenerator.prototype.evaluateSquares = function(squares) {
+BingoGenerator.prototype.evaluateSquares = function(squares, row) {
   var ids = squares.map(function(el) {
     return el.id;
   }).filter(function(el) {
@@ -827,7 +827,7 @@ BingoGenerator.prototype.evaluateSquares = function(squares) {
   }
 
   var synergiesForSquares = this.calculateSynergiesForSquares(squares);
-  return this.calculateEffectiveSynergyForSquares(synergiesForSquares);
+  return this.calculateEffectiveSynergyForSquares(synergiesForSquares, row);
 };
 
 BingoGenerator.prototype.calculateSynergiesForSquares = function(squares) {
@@ -879,11 +879,11 @@ BingoGenerator.prototype.calculateCombinedTypeSynergies = function(synergiesForS
   return combinedTypeSynergies;
 };
 
-BingoGenerator.prototype.filterRowtypeSynergies = function(synergiesForSquares) {
+BingoGenerator.prototype.filterRowtypeSynergies = function(synergiesForSquares, row) {
   var rowtypeSynergies = {};
   for (var rowtype in synergiesForSquares.rowtypeSynergies) {
     var rowtypeSynergy = synergiesForSquares.rowtypeSynergies[rowtype];
-    if (rowtypeSynergy.length < SQUARES_PER_ROW) {
+    if (!row || rowtypeSynergy.length < INDICES_PER_ROW[row]) {
       continue;
     }
     var rowtypeCost = 0;
@@ -926,9 +926,9 @@ BingoGenerator.prototype.filterSynergyValuesForType = function(type, synergies) 
   }
 };
 
-BingoGenerator.prototype.calculateEffectiveSynergyForSquares = function(synergiesForSquares) {
+BingoGenerator.prototype.calculateEffectiveSynergyForSquares = function(synergiesForSquares, row) {
   var typeSynergies = this.calculateCombinedTypeSynergies(synergiesForSquares);
-  var rowtypeSynergies = this.filterRowtypeSynergies(synergiesForSquares);
+  var rowtypeSynergies = this.filterRowtypeSynergies(synergiesForSquares, row);
   var effectiveTypeSynergies = this.calculateEffectiveTypeSynergies(typeSynergies);
 
 
