@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="hexbingo.css">
   </head>
 
+  <script src="jquery-3.1.1.min.js"></script>
   <script src="seedrandom.js"></script>
   <script src="hexbingo.js"></script>
 
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-  <body bgcolor="black">
-    <div height="30px" align="center" style="padding-right: 8%; padding-left: 2%; padding-bottom: 10px; min-width: 500px">
+  <body bgcolor="black" onresize='fitToParent(".hexspan")'>
+    <div height="30px" align="center" style="padding-right: 8%; padding-left: 2%; padding-bottom: 10px; min-width: 500px; height: 20px">
       <Span style="padding: 5px; font-size: 1.5em">
         <Span class="TextR">H</Span><Span class="TextO">e</Span><Span class="TextY">x</Span><Span class="TextG">B</Span><Span class="TextB">i</Span><Span class="TextP">n</Span><Span class="TextR">g</Span><Span class="TextO">o</Span>
       </Span>
@@ -35,9 +36,9 @@
         <option value="JSON">JSON Paste</option>
       </select>
       <input id="rngseed" type="text" name="rngseed" size="10" placeholder="Enter Seed">
-      <button type="submit" onclick="GenerateBoard()">Generate Board</button>>
+      <button type="submit" onclick="GenerateBoard()">Generate Board</button>
     </div>
-    <div style="background-color:#101010; overflow-y: hidden; position:relative; border: 1px solid grey; height: 93vmin; min-width: 500px; min-height: 520px">
+    <div id="hexContainer">
       <div style="position:absolute; width:100%">
         <ul id="hexheaderGrid">
           <li class="hexheader">
@@ -134,38 +135,38 @@
       </div>
       <div style="position:absolute; width:100%">
         <ul id="hexGrid">
-          <li class="hex"><a id="hex1" class="hexIn EndR" onmouseover="SetHover(1)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex2" class="hexIn EndR" onmouseover="SetHover(2)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex3" class="hexIn EndO" onmouseover="SetHover(3)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex1" class="hexIn EndR" onmouseover="SetHover(1)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex2" class="hexIn EndR" onmouseover="SetHover(2)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex3" class="hexIn EndO" onmouseover="SetHover(3)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
 
-          <li class="hex"><a id="hex4" class="hexIn EndP" onmouseover="SetHover(4)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex5" class="hexIn MidPR" onmouseover="SetHover(5)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex6" class="hexIn MidRO" onmouseover="SetHover(6)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex7" class="hexIn EndO" onmouseover="SetHover(7)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex4" class="hexIn EndP" onmouseover="SetHover(4)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex5" class="hexIn MidPR" onmouseover="SetHover(5)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex6" class="hexIn MidRO" onmouseover="SetHover(6)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex7" class="hexIn EndO" onmouseover="SetHover(7)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
 
-          <li class="hex"><a id="hex8" class="hexIn EndP" onmouseover="SetHover(8)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex9" class="hexIn MidBP" onmouseover="SetHover(9)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex10" class="hexIn CenterW" onmouseover="SetHover(10)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex11" class="hexIn MidOY" onmouseover="SetHover(11)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex12" class="hexIn EndY" onmouseover="SetHover(12)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex8" class="hexIn EndP" onmouseover="SetHover(8)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex9" class="hexIn MidBP" onmouseover="SetHover(9)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex10" class="hexIn CenterW" onmouseover="SetHover(10)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex11" class="hexIn MidOY" onmouseover="SetHover(11)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex12" class="hexIn EndY" onmouseover="SetHover(12)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
 
-          <li class="hex"><a id="hex13" class="hexIn EndB" onmouseover="SetHover(13)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex14" class="hexIn MidGB" onmouseover="SetHover(14)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex15" class="hexIn MidYG" onmouseover="SetHover(15)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex16" class="hexIn EndY" onmouseover="SetHover(16)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex13" class="hexIn EndB" onmouseover="SetHover(13)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex14" class="hexIn MidGB" onmouseover="SetHover(14)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex15" class="hexIn MidYG" onmouseover="SetHover(15)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex16" class="hexIn EndY" onmouseover="SetHover(16)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
 
-          <li class="hex"><a id="hex17" class="hexIn EndB" onmouseover="SetHover(17)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex18" class="hexIn EndG" onmouseover="SetHover(18)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
-          <li class="hex"><a id="hex19" class="hexIn EndG" onmouseover="SetHover(19)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span></span></a></li>
+          <li class="hex"><a id="hex17" class="hexIn EndB" onmouseover="SetHover(17)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex18" class="hexIn EndG" onmouseover="SetHover(18)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
+          <li class="hex"><a id="hex19" class="hexIn EndG" onmouseover="SetHover(19)" onmouseout="ClearHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><h1></h1><span class="hexspan"></span></a></li>
         </ul>
       </div>
     </div>
-    <div style="overflow: hidden; position: absolute;">
-      <table style="padding:0; margin:-5; min-width: 500px">
-        <tr>
-          <td width ="5%" style="color:grey; padding-left: 10px">Version 1.34 Developed by TestRunner 2017</td>
-          <td width ="1%" style="text-align:center; color:lightgrey">Seed: <b id="seeddisplay" style="color:orange">1234567890</b></td>
-          <td width ="1%" ><button style="float:right; margin:2px; margin-right: 20px; padding:0px"
+    <div style="overflow: hidden; position: fixed; bottom: 0; height: 20px; width: 100%">
+      <table style="padding:0; margin:-5; min-width: 500px; width: 100%; height: 20px">
+        <tr width="100%">
+          <td style="color:grey; padding-left: 10px;">Version 1.41 Developed by TestRunner 2017</td>
+          <td style="text-align:center; color:lightgrey; width: 10em">Seed: <b id="seeddisplay" style="color:orange">1234567890</b></td>
+          <td style="width: 7em"><button style="float:right; margin:2px; margin-right: 20px; padding:0px"
           onclick="alert('Click a hex to mark completed.\nRight-click a hex to mark undesired.\n\nAny row is valid, but shorter rows will have harder goals.')">HexBingo Info</button></td>
         </tr>
       </table>

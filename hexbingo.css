@@ -1,4 +1,3 @@
-
 .SelectedGreenHex {
   background: repeating-radial-gradient(
     circle,
@@ -19,21 +18,28 @@
 }
 
 /* Hexagons */
+#hexContainer {
+  background-color:#101010; 
+  overflow-y: hidden; 
+  position:relative; 
+  border: 1px solid grey; 
+  min-height: calc(100vh - 60px); 
+}
+
 #hexGrid {
   overflow: hidden;
-  width: 90vw; 
-  height: 85vw; /* height:width ratio = 9/16 = .5625  */
-  max-height: 85vh;
-  max-width: 90vh; /* 16/9 = 1.778 */
-  margin: 15px auto;
+  height: calc(96vh - 60px);
+  width: calc(100vh - 60px);
+  max-width: 85vw;
+  min-height: 100px;
+  min-width: 100px;
+  margin: 20px auto;
   position: absolute;
   left:2%;right:8%;
-  top:10%;bottom:0; /* center */
+  top:0px;bottom:0; /* center */
   padding: 0;
-  padding-top: 20px;
+  padding-top: 0;
   font-family: 'Roboto', sans-serif;
-  min-width: 500px;
-  min-height: 520px;
 }
 
 .hex {
@@ -54,7 +60,6 @@
   display: block;  
   width: 100%;
   height: 100%;
-  text-align: center;
   color: #fff;
   overflow: hidden;
   transform: skewY(-30deg) rotate(60deg);
@@ -68,15 +73,21 @@
  cursor:pointer;
 }
 
-.hexIn span {
-  left: 10%;
-  right: 10%;
-  height:100%;
-    display:-webkit-box;
-    -webkit-box-pack:center;
-    -webkit-box-align:center;
+.hexspan {
+  overflow-wrap: break-word;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  left: 0;
+  right: 0;
+  top: 50%;
+  text-align: center;
+  display: inline;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
 }
-
 
 /*** HEX CONTENT **********************************************************************/
 
@@ -180,19 +191,18 @@
 
 /* Headers */
 #hexheaderGrid {
-  width: 90vw; 
-  height: 85vw; /* height:width ratio = 9/16 = .5625  */
-  max-height: 85vh;
-  max-width: 90vh; /* 16/9 = 1.778 */
-  margin: 15px auto;
+  height: calc(100vh - 60px);
+  width: calc(100vh - 60px);
+  max-width: 85vw;
+  min-height: 100px;
+  min-width: 100px;
+  margin: 20px auto;
   position: absolute;
   left:2%;right:8%;
-  top:10%;bottom:0; /* center */
+  top:0;bottom:0; /* center */
   padding: 0;
-  padding-top: 20px;
+  padding-top: 0px;
   font-family: 'Roboto', sans-serif;
-  min-width: 500px;
-  min-height: 520px;
 }
 
 .hexheader {

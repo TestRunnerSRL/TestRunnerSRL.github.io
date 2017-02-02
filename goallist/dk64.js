@@ -1,740 +1,309 @@
-var bingoList = [];
-  bingoList[1] = [{
-  name: "Strong Kong",
-  types: ["buy"]
-}, {
-  name: "Baboon Balloon",
-  types: ["buy"]
-}, {
-  name: "25 Banana Coins for Donkey",
-  types: ["coin"]
-}, {
-  name: "25 Banana Coins for Diddy",
-  types: ["coin"]
-}, {
-  name: "25 Banana Coins for Lanky",
-  types: ["coin"]
-}, {
-  name: "Donkey's GB in K. Rool Ship Cage",
-  types: ["donkeygb", "isles"]
-}, {
-  name: "Jungle Japes Battle Crown",
-  types: ["crown", "japes"]
-}, {
-  name: "50 Bananas in Jungle Japes",
-  types: ["japes", "banana", "banana2"]
-}, {
-  name: "50 Bananas in Angry Aztec",
-  types: ["aztec", "banana", "banana2"]
-}];
-bingoList[2] = [{
-  name: "25 Banana Coins for Tiny",
-  types: ["coin"]
-}, {
-  name: "25 Banana Coins for Chunky",
-  types: ["coin"]
-}, {
-  name: "Baboon Blast GB in Jungle Japes",
-  types: ["japes", "donkeygb"]
-}, {
-  name: "Ammo Belt 2",
-  types: ["buy"]
-}, {
-  name: "Gorilla Grab",
-  types: ["buy"]
-}, {
-  name: "Simian Spring",
-  types: ["buy"]
-}, {
-  name: "50 Bananas in Gloomy Galleon",
-  types: ["gloomy", "banana", "banana2"]
-}, {
-  name: "3 Melons",
-  types: ["buy", "instrument"]
-}, {
-  name: "50 Bananas in Crystal Caves",
-  types: ["cave", "banana", "banana2"]
-}];
-bingoList[3] = [{
-  name: "50 Bananas in Frantic Factory",
-  types: ["factory", "banana", "banana2"]
-}, {
-  name: "Angry Aztec Lobby GB",
-  types: ["isles", "bonus", "tinygb"]
-}, {
-  name: "Gorilla Gone",
-  types: ["buy"]
-}, {
-  name: "Monkeyport",
-  types: ["buy"]
-}, {
-  name: "Orangstand Sprint",
-  types: ["buy"]
-}, {
-  name: "100 Bananas in Jungle Japes",
-  types: ["japes", "banana", "banana2"]
-}, {
-  name: "All Guns",
-  types: ["buy", "gun"]
-}, {
-  name: "5 Blueprints",
-  types: ["bp"]
-}, {
-  name: "Gloomy Galleon Battle Crown",
-  types: ["gloomy", "crown"]
-}, {
-  name: "Open Gloomy Galleon Treasure Room",
-  types: ["gloomy"]
-}];
-bingoList[4] = [{
-  name: "Vulture GB",
-  types: ["diddygb", "aztec"]
-}, {
-  name: "Activate Production Room in Factory",
-  types: ["factory", "donkeygb"]
-}, {
-  name: "3 Tiny Blueprints",
-  types: ["bp", "tinygb", "manygb"]
-}, {
-  name: "All Instruments",
-  types: ["buy", "instrument"]
-}, {
-  name: "2 Battle Crowns",
-  types: ["crown"]
-}, {
-  name: "Key 2",
-  types: ["aztec", "key", "key2"]
-}, {
-  name: "Baboon Blast GB in Crystal Caves",
-  types: ["cave", "donkeygb"]
-}, {
-  name: "Diddy Minecart GB",
-  types: ["japes", "diddygb", "race"]
-}, {
-  name: "Complete 3 Baboon Blasts",
-  types: ["donkeygb"]
-}];
-bingoList[5] = [{
-  name: "100 Bananas in Gloomy Galleon",
-  types: ["banana", "banana2", "gloomy"]
-}, {
-  name: "100 Bananas in Angry Aztec",
-  types: ["aztec", "banana", "banana2"]
-}, {
-  name: "Shoot 10 Banana Balloons",
-  types: ["banana", "banana2", "gun"]
-}, {
-  name: "Galleon Submarine GB",
-  types: ["gloomy", "bonus", "tinygb"]
-}, {
-  name: "3 Donkey Blueprints",
-  types: ["donkeygb", "bp", "manygb"]
-}, {
-  name: "3 Diddy Blueprints",
-  types: ["diddygb", "bp", "manygb"]
-}, {
-  name: "5 GBs in Jungle Japes",
-  types: ["japes", "manygb"]
-}, {
-  name: "No Bananaport Warps",
-  types: ["restrict", "restrict_warp", "warp"]
-}, {
-  name: "Key 4",
-  types: ["gloomy", "key", "fungi"]
-}, {
-  name: "150 Bananas in any Level",
-  types: ["banana", "banana2"]
-}];
-bingoList[6] = [{
-  name: "100 Bananas in Frantic Factory",
-  types: ["factory", "banana", "banana2"]
-}, {
-  name: "Cannon Game GB in Gloomy Galleon",
-  types: ["chunkygb", "gloomy"]
-}, {
-  name: "Tile Flipping GB in Crystal Caves",
-  types: ["cave", "lankygb"]
-}, {
-  name: "Crystal Caves Battle Crown",
-  types: ["cave", "crown"]
-}, {
-  name: "Key 3",
-  types: ["factory", "key", "key3"]
-}, {
-  name: "Llama Temple Matching Game GB",
-  types: ["lankygb", "aztec"]
-}, {
-  name: "Turn on Lighthouse",
-  types: ["gloomy", "donkeygb"]
-}, {
-  name: "3 Chunky Blueprints",
-  types: ["chunkygb", "bp", "manygb"]
-}, {
-  name: "Activate All Warps in Jungle Japes",
-  types: ["japes", "warp"]
-}, {
-  name: "5 GBs in Angry Aztec",
-  types: ["aztec", "manygb"]
-}];
-bingoList[7] = [{
-  name: "25 Coins with all Kongs",
-  types: ["coin"]
-}, {
-  name: "25 Coins with all Kongs",
-  types: ["coin"]
-}, {
-  name: "Both Banana Fairies in Gloomy Galleon",
-  types: ["gloomy", "fairy"]
-}, {
-  name: "Activate All Warps in Frantic Factory",
-  types: ["factory", "warp"]
-}, {
-  name: "Frantic Factory Battle Crown",
-  types: ["factory", "crown"]
-}, {
-  name: "100 Bananas in Crystal Caves",
-  types: ["cave", "banana", "banana2"]
-}, {
-  name: "Kill Giant Kosha",
-  types: ["cave"]
-}, {
-  name: "5 Banana Fairies",
-  types: ["fairy", "key8"]
-}, {
-  name: "3 Lanky Blueprints",
-  types: ["lankygb", "bp", "manygb"]
-}, {
-  name: "5 GBs in DK Isles",
-  types: ["manygb", "isles"]
-}];
-bingoList[8] = [{
-  name: "All Caged GBs in Jungle Japes",
-  types: ["manygb", "japes"]
-}, {
-  name: "Giant Toy Monster GB",
-  types: ["chunkygb", "factory"]
-}, {
-  name: "Fungi Forest Battle Crown",
-  types: ["fungi", "crown"]
-}, {
-  name: "50 Bananas in Fungi Forest",
-  types: ["banana", "banana2", "fungi"]
-}, {
-  name: "Both Banana Fairies in Frantic Factory",
-  types: ["factory", "fairy"]
-}, {
-  name: "Seal Race GB",
-  types: ["donkeygb", "gloomy", "race"]
-}, {
-  name: "Pearl Rescue GB",
-  types: ["tinygb", "gloomy"]
-}, {
-  name: "All Blueprints in Jungle Japes",
-  types: ["japes", "bp"]
-}, {
-  name: "Angry Aztec Battle Crown",
-  types: ["aztec", "lankygb", "crown"]
-}, {
-  name: "Chunky's Caged Bonus GB in Angry Aztec",
-  types: ["aztec", "chunkygb", "bonus"]
-}];
-bingoList[9] = [{
-//  name: "No Pause Exit",
-//  types: ["restrict"]
-//}, {
-  name: "Mechanical Fish GB",
-  types: ["diddygb", "gloomy"]
-}, {
-  name: "All Blueprints in Frantic Factory",
-  types: ["factory", "bp"]
-}, {
-  name: "Shoot 15 Banana Balloons",
-  types: ["banana", "banana2", "gun"]
-}, {
-  name: "5 GBs in Frantic Factory",
-  types: ["factory", "manygb"]
-}, {
-  name: "9 Rainbow Coins",
-  types: ["coin", "restrict_coin", "fungi"]
-}, {
-  name: "3 Banana Medals",
-  types: ["banana", "banana2", "medal"]
-}, {
-  name: "250 Total Bananas",
-  types: ["banana", "banana2"]
-}, {
-  name: "Both Banana Fairies in Angry Aztec",
-  types: ["aztec", "fairy"]
-}, {
-  name: "Both Banana Fairies in Jungle Japes",
-  types: ["japes", "fairy"]
-}];
-bingoList[10] = [{
-  name: "5 Tiny Blueprints",
-  types: ["bp", "tinygb", "manygb"]
-}, {
-  name: "5 GBs for 1 Kong in Jungle Japes",
-  types: ["manygb", "japes"]
-}, {
-  name: "Key 8",
-  types: ["key", "fairy", "helm", "key8"]
-}, {
-  name: "3 Battle Crowns",
-  types: ["crown"]
-}, {
-  name: "Activate All Warps in Gloomy Galleon",
-  types: ["gloomy", "warp"]
-}, {
-  name: "Activate All Warps in Angry Aztec",
-  types: ["aztec", "warp"]
-}, {
-  name: "DK Isles Summit GB",
-  types: ["diddygb", "bonus", "isles"]
-}, {
-  name: "Chunky's Seasickness GB",
-  types: ["gloomy", "chunkygb", "donkeygb"]
-}, {
-  name: "All Blueprints in Gloomy Galleon",
-  types: ["gloomy", "bp"]
-}];
-bingoList[11] = [{
-//  name: "No Rainbow Coins",
-//  types: ["restrict", "restrict_coin", "coin", "buy"]
-//}, {
-  name: "200 Bananas in Jungle Japes",
-  types: ["japes", "banana", "banana2"]
-}, {
-  name: "100 Bananas in Fungi Forest",
-  types: ["fungi", "banana", "banana2"]
-}, {
-  name: "Key 6",
-  types: ["cave", "key", "key6"]
-}, {
-  name: "All Caged GBs in DK Isles",
-  types: ["manygb", "gun", "isles"]
-}, {
-  name: "Both Mad Maze Maul GBs",
-  types: ["cave", "bonus", "diddygb", "lankygb", "japes"]
-}, {
-  name: "Both Splish-Splash Salvage GBs",
-  types: ["diddygb", "tinygb", "gloomy", "bonus", "japes"]
-}, {
-  name: "Activate All Warps in Crystal Caves",
-  types: ["cave", "warp"]
-}, {
-  name: "5 GBs in Gloomy Galleon",
-  types: ["manygb", "gloomy"]
-}, {
-  name: "5 Lobby GBs",
-  types: ["isles", "manygb"]
-}];
-bingoList[12] = [{
-  name: "10 Blueprints",
-  types: ["bp", "manygb"]
-}, {
-  name: "200 Bananas in Frantic Factory",
-  types: ["banana", "banana2", "factory"]
-}, {
-  name: "5 Diddy Blueprints",
-  types: ["bp", "diddygb", "manygb"]
-}, {
-  name: "All 5 DK Isles Instrument Pad GBs",
-  types: ["manygb", "instrument", "isles"]
-}, {
-  name: "All Blueprints in Crystal Caves",
-  types: ["bp", "cave", "restrict_warp"]
-}, {
-  name: "Pound the X GB in DK Isles",
-  types: ["chunkygb", "fairy", "isles"]
-}, {
-  name: "3 Banana Medals in Jungle Japes",
-  types: ["banana", "banana2", "japes", "medal"]
-}, {
-  name: "250 Total Bananas With Donkey",
-  types: ["banana", "banana2"]
-}, {
-  name: "Both Banana Fairies in Crystal Caves",
-  types: ["cave", "fairy"]
-}, {
-  name: "5 Bonus Barrel GBs",
-  types: ["manygb", "bonus"]
-}];
-bingoList[13] = [{
-  name: "5 Donkey Blueprints",
-  types: ["bp", "donkeygb", "manygb"]
-}, {
-  name: "Shoot 20 Banana Balloons",
-  types: ["banana", "banana2", "gun"]
-}, {
-  name: "5 GBs for 1 Kong in Angry Aztec",
-  types: ["manygb", "aztec"]
-}, {
-  name: "Both DK Isles Battle Crowns",
-  types: ["crown", "gun", "isles"]
-}, {
-  name: "Squash Tomatoes GB",
-  types: ["fungi", "chunkygb"]
-}, {
-  name: "200 Bananas in Angry Aztec",
-  types: ["aztec", "banana", "banana2"]
-}, {
-  name: "8 Banana Fairies",
-  types: ["fairy", "key8"]
-}, {
-  name: "Both Speedy Swing Sortie GBs",
-  types: ["tinygb", "lankygb", "japes", "bonus", "fungi"]
-}, {
-  name: "All Blueprints in Angry Aztec",
-  types: ["aztec", "bp", "restrict_warp"]
-}];
-bingoList[14] = [{
-  name: "3 Donkey Banana Medals",
-  types: ["banana", "banana2", "medal", "donkeymedal"]
-}, {
-  name: "5 Lanky Blueprints",
-  types: ["bp", "lankygb", "manygb"]
-}, {
-  name: "50 Bananas in Creepy Castle",
-  types: ["castle", "banana", "banana2", "key5"]
-}, {
-  name: "3 Banana Medals in Frantic Factory",
-  types: ["banana", "banana2", "factory", "medal"]
-}, {
-  name: "Chunky Minecart GB",
-  types: ["chunkygb", "fungi", "race"]
-}, {
-  name: "Key 5",
-  types: ["fungi", "key5", "key"]
-}, {
-  name: "5 Chunky Blueprints",
-  types: ["bp", "chunkygb", "manygb"]
-}, {
-  name: "10 GBs",
-  types: ["manygb"]
-}, {
-  name: "250 Total Bananas With Diddy",
-  types: ["banana", "banana2"]
-}, {
-  name: "5 GBs in Crystal Caves",
-  types: ["manygb", "cave"]
-}];
-bingoList[15] = [{
-  name: "Enter Every Level",
-  types: ["castle", "key5", "helm"]
-}, {
-  name: "Both Beetle Slides",
-  types: ["lankygb", "tinygb", "diddygb", "aztec", "cave", "race"]
-}, {
-  name: "13 Blueprints",
-  types: ["bp", "manygb"]
-}, {
-  name: "2 Minecart Mayhem GBs",
-  types: ["chunkygb", "donkeygb", "diddygb", "bonus"]
-}, {
-  name: "5 GBs for 1 Kong in Gloomy Galleon",
-  types: ["manygb", "gloomy"]
-}, {
-  name: "250 Total Bananas With Chunky",
-  types: ["banana", "banana2"]
-}, {
-  name: "Activate All Warps in Fungi Forest",
-  types: ["fungi", "warp"]
-}, {
-  name: "250 Total Bananas With Tiny",
-  types: ["banana", "banana2"]
-}, {
-  name: "250 Total Bananas With Lanky",
-  types: ["banana", "banana2"]
-}, {
-  name: "3 Banana Medals in Angry Aztec",
-  types: ["banana", "banana2", "aztec", "medal"]
-}];
-bingoList[16] = [{
-  name: "3 Diddy Banana Medals",
-  types: ["banana", "banana2", "medal"]
-}, {
-  name: "100 Bananas in Creepy Castle",
-  types: ["banana", "banana2", "castle", "key5"]
-}, {
-  name: "All Blueprints in DK Isles",
-  types: ["bp", "isles", "key5"]
-}, {
-  name: "Super Duper Simian Slam",
-  types: ["castle", "buy", "key5"]
-}, {
-  name: "Sniper Scope",
-  types: ["buy", "castle", "key5"]
-}, {
-  name: "10 Banana Fairies",
-  types: ["fairy", "key8"]
-}, {
-  name: "200 Bananas in Crystal Caves",
-  types: ["banana", "banana2", "cave"]
-}, {
-  name: "All Banana Fairies in DK Isles",
-  types: ["fairy", "isles"]
-}, {
-  name: "10 Donkey GBs",
-  types: ["donkeygb", "manygb"]
-}, {
-  name: "200 Bananas in Gloomy Galleon",
-  types: ["gloomy", "banana", "banana2"]
-}];
-bingoList[17] = [{
-  name: "Banana Medal with Every Kong",
-  types: ["banana", "banana2", "medal"]
-}, {
-  name: "3 Chunky Banana Medals",
-  types: ["banana", "banana2", "medal", "chunkymedal"]
-}, {
-  name: "3 Tiny Banana Medals",
-  types: ["banana", "banana2", "medal"]
-}, {
-  name: "3 Lanky Banana Medals",
-  types: ["banana", "banana2", "medal"]
-}, {
-  name: "350 Total Bananas",
-  types: ["banana", "banana2"]
-}, {
-  name: "Beanstalk GB",
-  types: ["tinygb", "fungi"]
-}, {
-  name: "3 Banana Medals in Gloomy Galleon",
-  types: ["banana", "banana2", "gloomy", "medal"]
-}, {
-  name: "All 7 DK Isles Rainbow Coins",
-  types: ["coin", "isles", "key5"]
-}, {
-  name: "Spider Mini-Boss GB",
-  types: ["tinygb", "fungi"]
-}, {
-  name: "All Blueprints in Fungi Forest",
-  types: ["bp", "fungi"]
-}];
-bingoList[18] = [{
-  name: "Rabbit Race GB",
-  types: ["fungi", "lankygb"]
-}, {
-  name: "All 5 Production Room GBs in Frantic Factory",
-  types: ["manygb", "donkeygb", "factory"]
-}, {
-  name: "5 GBs for 1 Kong in Frantic Factory",
-  types: ["manygb", "factory"]
-}, {
-  name: "Both Banana Fairies in Fungi Forest",
-  types: ["fungi", "fairy"]
-}, {
-  name: "12 Rainbow Coins",
-  types: ["coin", "restrict_coin", "fungi"]
-}, {
-  name: "7 Tiny Blueprints",
-  types: ["bp", "tinygb", "manygb"]
-}, {
-  name: "3 Banana Medals in Crystal Caves",
-  types: ["banana", "banana2", "cave", "medal"]
-}, {
-  name: "16 Blueprints",
-  types: ["bp", "manygb"]
-}, {
-  name: "5 GBs in Fungi Forest",
-  types: ["fungi", "manygb"]
-}, {
-  name: "10 GBs in Jungle Japes",
-  types: ["manygb", "japes"]
-}];
-bingoList[19] = [{
-  name: "7 Chunky Blueprints",
-  types: ["bp", "chunkygb", "manygb"]
-}, {
-  name: "7 Lanky Blueprints",
-  types: ["bp", "lankygb", "manygb"]
-}, {
-  name: "All 5 GBs from 5 Door Ship",
-  types: ["gloomy", "manygb", "bonus"]
-}, {
-  name: "All 5 GBs in 5 Door Igloo",
-  types: ["cave", "manygb"]
-}, {
-  name: "Hideout Helm Battle Crown",
-  types: ["helm", "crown"]
-}, {
-  name: "10 Diddy GBs",
-  types: ["diddygb", "manygb"]
-}, {
-  name: "75 Coins with any Kong",
-  types: ["coin"]
-}, {
-  name: "10 GBs in Frantic Factory",
-  types: ["manygb", "factory", "bp"]
-}, {
-  name: "10 GBs in DK Isles",
-  types: ["manygb", "isles"]
-}];
-bingoList[20] = [{
-  name: "Owl GB",
-  types: ["diddygb", "bonus", "fungi"]
-}, {
-  name: "Open Crown Door in Helm",
-  types: ["crown", "helm"]
-}, {
-  name: "Ballroom GB",
-  types: ["diddygb", "castle", "bonus", "key5"]
-}, {
-  name: "200 Bananas in Fungi Forest",
-  types: ["fungi", "banana", "banana2", "medal"]
-}, {
-  name: "Creepy Castle Battle Crown",
-  types: ["crown", "castle", "key5", "lankygb"]
-}, {
-  name: "Spawn K. Rool Ship",
-  types: ["key3", "key8", "key"]
-}, {
-  name: "15 GBs",
-  types: ["manygb", "bp"]
-}, {
-  name: "10 GBs in Angry Aztec",
-  types: ["manygb", "aztec", "bp"]
-}, {
-  name: "Donkey's Banana Medal in Hideout Helm",
-  types: ["helm", "medal", "donkeymedal"]
-}];
-bingoList[21] = [{
-  name: "All 4 R&D GBs in Frantic Factory",
-  types: ["race", "factory", "manygb", "instrument"]
-}, {
-  name: "All 5 GBs from 5 Door Temple",
-  types: ["manygb", "aztec", "gun"]
-}, {
-  name: "7 Donkey Blueprints",
-  types: ["bp", "donkeygb", "manygb"]
-}, {
-  name: "7 Diddy Blueprints",
-  types: ["bp", "diddygb", "manygb", "key5"]
-}, {
-  name: "50 Bananas in every level",
-  types: ["banana", "banana2"]
-}, {
-  name: "13 Banana Fairies",
-  types: ["fairy", "key8"]
-}, {
-  name: "6 Battle Crowns",
-  types: ["crown"]
-}, {
-  name: "50 Coins with any 3 Kongs",
-  types: ["coin"]
-}, {
-  name: "10 GBs in Gloomy Galleon",
-  types: ["manygb", "gloomy", "bp"]
-}];
-bingoList[22] = [{
-  name: "5 GBs for 1 Kong in Crystal Caves",
-  types: ["manygb", "cave"]
-}, {
-  name: "10 Lanky GBs",
-  types: ["lankygb", "manygb"]
-}, {
-  name: "10 Tiny GBs",
-  types: ["tinygb", "manygb"]
-}, {
-  name: "Both Tree GBs in Creepy Castle",
-  types: ["chunkygb", "donkeygb", "castle", "bonus", "key5"]
-}, {
-  name: "2 Beaver Bother GBs",
-  types: ["diddygb", "lankygb", "chunkygb", "bonus", "factory", "castle", "key5"]
-}, {
-  name: "All 5 GBs in 5 Door Cabin",
-  types: ["diddygb", "manygb", "cave", "instrument"]
-}, {
-  name: "Both Banana Fairies in Creepy Castle",
-  types: ["fairy", "castle", "key5"]
-}, {
-  name: "3 Banana Medals in Fungi Forest",
-  types: ["banana", "banana2", "fungi", "medal"]
-}, {
-  name: "All Blueprints in Creepy Castle",
-  types: ["bp", "castle", "key5"]
-}];
-bingoList[23] = [{
-  name: "5 GBs for 1 Kong in Fungi Forest",
-  types: ["manygb", "fungi"]
-}, {
-  name: "Activate All Warps in Creepy Castle",
-  types: ["castle", "warp", "key5"]
-}, {
-  name: "500 Total Bananas",
-  types: ["banana", "banana2"]
-}, {
-  name: "Key 7",
-  types: ["castle", "key7", "key5", "key"]
-}, {
-  name: "10 Chunky GBs",
-  types: ["chunkygb", "manygb"]
-}, {
-  name: "20 Blueprints",
-  types: ["bp", "manygb"]
-}, {
-  name: "5 GBs in Creepy Castle",
-  types: ["manygb", "castle", "key5"]
-}, {
-  name: "Donkey Minecart GB",
-  types: ["donkeygb", "castle", "key5", "race"]
-}, {
-  name: "200 Bananas in Creepy Castle",
-  types: ["banana", "banana2", "castle", "key5"]
-}];
-bingoList[24] = [{
-  name: "Both Car Races",
-  types: ["factory", "castle", "tinygb", "key5", "race"]
-}, {
-  name: "10 GBs in Crystal Caves",
-  types: ["manygb", "cave", "bp"]
-}, {
-  name: "Complete DK phase of K. Rool Fight",
-  types: ["key3", "key8", "key"]
-}, {
-  name: "Nintendo Coin",
-  types: ["donkeygb", "factory"]
-}, {
-  name: "5 Boss Keys",
-  types: ["key", "fungi", "key5"]
-}, {
-  name: "15 Donkey GBs",
-  types: ["manygb", "donkeygb"]
-}, {
-  name: "10 Bonus Barrel GBs",
-  types: ["manygb", "bonus"]
-}, {
-  name: "3 Banana Medals in Creepy Castle",
-  types: ["banana", "banana2", "castle", "key5", "medal"]
-}, {
-  name: "5 GBs for 1 Kong in Creepy Castle",
-  types: ["manygb", "castle", "key5"]
-}];
-bingoList[25] = [{
-  name: "Chunky's Banana Medal in Hideout Helm",
-  types: ["helm", "medal", "chunkymedal"]
-}, {
-  name: "10 GBs in Fungi Forest",
-  types: ["manygb", "fungi"]
-}, {
-  name: "15 Diddy GBs",
-  types: ["manygb", "diddygb"]
-}, {
-  name: "20 GBs",
-  types: ["manygb", "bp"]
-}, {
-  name: "Complete 4 Coin-Collecting Courses",
-  types: ["manygb", "race"]
-}, {
-  name: "600 Total Bananas",
-  types: ["banana", "banana2"]
-}, {
-  name: "25 Blueprints",
-  types: ["bp", "manygb"]
-}, {
-  name: "10 GBs in Creepy Castle",
-  types: ["manygb", "castle", "bp", "key5"]
-}, {
-  name: "Open K. Rool's Mouth",
-  types: ["cave", "castle", "key7", "key6", "key", "key5"]
-}];
+ var bingoList = []; //number represents difficulty 
+	bingoList[1] = [
+		{ name: "Baboon Blast GB in Jungle Japes", types: ["japes","donkey"] },
+		{ name: "50 Bananas in Gloomy Galleon", types: ["gloomy","banana","gloomybananas"] },
+		{ name: "Angry Aztec Lobby GB", types: ["isles","bonus","tiny"] },
+		{ name: "100 Bananas in Jungle Japes", types: ["japes","banana","japesbananas"] },
+		{ name: "5 Blueprints", types: ["bp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "50 bananas in Creepy Castle", types: ["castle","banana","castlebananas"] },
+		{ name: "Open Gloomy Galleon Treasure Room", types: ["gloomy"] },
+		{ name: "Activate Production Room in Factory", types: ["factory","donkey"] },
+		{ name: "Key 2", types: ["key"] },
+		{ name: "1 GB on each kong", types: ["japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] }
+	];
+	bingoList[2] = [
+		{ name: "3 Tiny Blueprints", types: ["bp","tiny","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "2 Battle Crowns", types: ["japescrown","azteccrown","factorycrown","gloomycrown","fungicrown","cavecrown","castlecrown","islescrown","helmcrown"] },
+		{ name: "Complete 3 Baboon Blasts", types: ["donkey","blast"] },
+		{ name: "100 Bananas in Angry Aztec", types: ["aztec","banana","aztecbananas"] },
+		{ name: "3 Donkey Blueprints", types: ["donkey","bp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "3 Diddy Blueprints", types: ["diddy","bp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "5 GBs in Jungle Japes", types: ["japes","japesgb"] },
+		{ name: "150 Bananas in any Level", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "50 Bananas in Crystal Caves", types: ["cave","banana","cavebananas"] },
+		{ name: "50 Bananas in Fungi Forest", types: ["banana","fungibananas","fungi"] },
+		{ name: "Gloomy Galleon Battle Crown", types: ["gloomy","gloomycrown"] }
+	];
+	bingoList[3] = [
+		{ name: "Baboon Blast GB in Crystal Caves", types: ["cave","donkey","blast"] },
+		{ name: "Seal Race GB", types: ["donkey","gloomy","race"] },
+		{ name: "Shoot 10 Banana Balloons", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "Galleon Submarine GB", types: ["gloomy","bonus","tiny"] },
+		{ name: "Tile Flipping GB in Crystal Caves", types: ["cave","lanky"] },
+		{ name: "100 Bananas in Frantic Factory", types: ["factory","banana","factorybananas"] },
+		{ name: "Cannon Game GB in Gloomy Galleon", types: ["chunky","gloomy"] },
+		{ name: "Kill Giant Kosha", types: ["cave"] },
+		{ name: "Frantic Factory Battle Crown", types: ["factory","factorycrown"] },
+		{ name: "Vulture GB", types: ["diddy","aztec"] }
+	];
+	bingoList[4] = [
+		{ name: "100 Bananas in Gloomy Galleon", types: ["banana","gloomybananas","gloomy"] },
+		{ name: "Key 4", types: ["key"] },
+		{ name: "No Bananaport Warps", types: ["restrict","restrict_warp"] },
+		{ name: "Crystal Caves Battle Crown", types: ["cave","cavecrown"] },
+		{ name: "Llama Temple Matching Game GB", types: ["lanky","aztec"] },
+		{ name: "Both Banana Fairies in Gloomy Galleon", types: ["gloomy","fairy"] },
+		{ name: "5 GBs in DK Isles", types: ["islesgb","isles"] },
+		{ name: "100 Bananas in Creepy Castle", types: ["banana","castlebananas","castle"] },
+		{ name: "Diddy Minecart GB", types: ["japes","diddy","race"] },
+		{ name: "25 Coins with all Kongs", types: ["coin","restrict_coin"] }
+	];
+	bingoList[5] = [
+		{ name: "All Caged GBs in Jungle Japes", types: ["japesgb","japes"] },
+		{ name: "Key 3", types: ["key","key3"] },
+		{ name: "Fungi Forest Battle Crown", types: ["fungi","fungicrown"] },
+		{ name: "Turn on Lighthouse", types: ["gloomy","donkey"] },
+		{ name: "3 Chunky Blueprints", types: ["chunky","bp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "Activate All Warps in Jungle Japes", types: ["japes","japeswarp"] },
+		{ name: "Activate All Warps in Frantic Factory", types: ["factory","factorywarp"] },
+		{ name: "5 Banana Fairies", types: ["fairy","key8"] },
+		{ name: "3 Lanky Blueprints", types: ["lanky","bp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "All 100 Bananas with any Kong in any level", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] }
+	];
+	bingoList[6] = [
+		{ name: "No Pause Exit", types: ["restrict"] },
+		{ name: "100 Bananas in Crystal Caves", types: ["cave","banana","cavebananas"] },
+		{ name: "Pound the X GB in DK Isles", types: ["chunky","isles"] },
+		{ name: "Giant Toy Monster GB", types: ["chunky","factory"] },
+		{ name: "All Blueprints in Frantic Factory", types: ["factory","manybp","bp","factorybp"] },
+		{ name: "5 GBs in Frantic Factory", types: ["factory","factorygb"] },
+		{ name: "Both Banana Fairies in Frantic Factory", types: ["factory","fairy"] },
+		{ name: "250 Total Bananas", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "DK Isles Summit GB", types: ["diddy","bonus","isles"] },
+		{ name: "5 GBs in Angry Aztec", types: ["aztec","aztecgb"] },
+		{ name: "Both Stealthy Snoop GBs", types: ["aztec","gloomy","bonus"] }
+	];
+	bingoList[7] = [
+		{ name: "100 Bananas in Fungi Forest", types: ["fungi","banana","fungibananas"] },
+		{ name: "Key 6", types: ["key","key6"] },
+		{ name: "Pearl Rescue GB", types: ["tiny","gloomy"] },
+		{ name: "All Blueprints in Jungle Japes", types: ["japes","manybp","bp","japesbp"] },
+		{ name: "Angry Aztec Battle Crown", types: ["aztec","lanky","azteccrown"] },
+		{ name: "Both Banana Fairies in Angry Aztec", types: ["aztec","fairy"] },
+		{ name: "Both Banana Fairies in Jungle Japes", types: ["japes","fairy"] },
+		{ name: "10 GBs", types: ["manybp","bp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "1 GB for each Kong in Factory", types: ["factory","factorygb"] },
+		{ name: "All Caged GBs in DK Isles", types: ["islesgb","isles"] },
+		{ name: "9 Rainbow Coins", types: ["coin","restrict_coin"] }
+	];
+	bingoList[8] = [
+		{ name: "Chunky's Caged Bonus GB in Angry Aztec", types: ["aztec","chunky","bonus"] },
+		{ name: "3 Battle Crowns", types: ["japescrown","azteccrown","factorycrown","gloomycrown","fungicrown","cavecrown","castlecrown","islescrown","helmcrown"] },
+		{ name: "Mechanical Fish GB", types: ["diddy","gloomy"] },
+		{ name: "Key 8", types: ["key","fairy","helm","key8"] },
+		{ name: "Shoot 15 Banana Balloons", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "5 GBs in Gloomy Galleon", types: ["gloomygb","gloomy"] },
+		{ name: "Squash Tomatoes GB", types: ["fungi","chunky"] },
+		{ name: "Both Splish-Splash Salvage GBs", types: ["gloomy","bonus","japes"] },
+		{ name: "5 Tiny Blueprints", types: ["bp","tiny","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "Chunky's Seasickness GB", types: ["gloomy","chunky","donkey"] },
+		{ name: "All 3 Batty Barrel Bandit GBs", types: ["factory","gloomy","bonus"] }
+	];
+	bingoList[9] = [
+		{ name: "Both Tree GBs in Creepy Castle", types: ["chunky","donkey","castle"] },
+		{ name: "All Blueprints in Gloomy Galleon", types: ["gloomy","manybp","bp","galleonbp"] },
+		{ name: "Activate All Warps in Creepy Castle", types: ["castle","castlewarp"] },
+		{ name: "Activate All Warps in Angry Aztec", types: ["aztec","aztecwarp"] },
+		{ name: "5 Diddy Blueprints", types: ["bp","diddy","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "Spider Mini-Boss GB", types: ["tiny","fungi"] },
+		{ name: "Both Mad Maze Maul GBs", types: ["cave","bonus","japes"] },
+		{ name: "100 bananas for 1 Kong in Jungle Japes", types: ["banana","japesbananas","japes"] },
+		{ name: "5 Lobby GBs", types: ["isles","islesgb"] },
+		{ name: "1 GB for each Kong in Jungle Japes", types: ["japes","japesgb"] }
+	];
+	bingoList[10] = [
+		{ name: "Both Banana Fairies in Crystal Caves", types: ["cave","fairy"] },
+		{ name: "All Blueprints in Creepy Castle", types: ["manybp","castle","bp","castlebp"] },
+		{ name: "All Blueprints in Crystal Caves", types: ["manybp","cave","bp","cavebp"] },
+		{ name: "Key 7", types: ["castle","key7","key"] },
+		{ name: "200 Bananas in Jungle Japes", types: ["japes","banana","japesbananas"] },
+		{ name: "Activate All Warps in Gloomy Galleon", types: ["gloomy","gloomywarp"] },
+		{ name: "10 Blueprints", types: ["bp","manybp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "5 Donkey Blueprints", types: ["bp","donkey","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "Beanstalk GB", types: ["tiny","fungi"] },
+		{ name: "Creepy Castle Battle Crown", types: ["castlecrown","castle","lanky"] },
+		{ name: "Enter Every Level", types: ["helm","manylevel"] }
+	];
+	bingoList[11] = [
+		{ name: "No Rainbow Coins", types: ["restrict","restrict_coin","coin"] },
+		{ name: "Chunky Minecart GB", types: ["chunky","fungi","race"] },
+		{ name: "8 Banana Fairies", types: ["fairy"] },
+		{ name: "Both Speedy Swing Sortie GBs", types: ["japes","bonus","fungi"] },
+		{ name: "5 Bonus Barrel GBs", types: ["bonus","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "3 Banana Medals in Jungle Japes", types: ["banana","japesbananas","japes","medal"] },
+		{ name: "10 Donkey GBs", types: ["donkey","bp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "1 GB for each Kong in Gloomy Galleon", types: ["gloomy","gloomygb"] },
+		{ name: "200 Bananas in Frantic Factory", types: ["banana","factorybananas","factory"] },
+		{ name: "100 Bananas for 1 Kong in Angry Aztec", types: ["aztec","banana","aztecbananas"] },
+		{ name: "Activate All Warps in Crystal Caves", types: ["cave","cavewarp"] }
+	];
+	bingoList[12] = [
+		{ name: "Rabbit Race GB", types: ["fungi","lanky"] },
+		{ name: "Ballroom GB", types: ["diddy","castle","bonus"] },
+		{ name: "Both Banana Fairies in Fungi Forest", types: ["fungi","fairy"] },
+		{ name: "5 Lanky Blueprints", types: ["bp","lanky","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "5 Chunky Blueprints", types: ["bp","chunky","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "2 GBs on each kong", types: ["manybp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "Activate All Warps in Fungi Forest", types: ["fungi","fungiwarp"] },
+		{ name: "5 GBs in Crystal Caves", types: ["cave","cavegb"] },
+		{ name: "3 Banana Medals", types: ["banana","medal","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "All 5 DK Isles Instrument Pad GBs", types: ["islesgb","isles"] },
+		{ name: "Hideout Helm Battle Crown", types: ["helm","helmcrown"] }
+	];
+	bingoList[13] = [
+		{ name: "Owl GB", types: ["diddy","bonus","fungi"] },
+		{ name: "Both DK Isles Battle Crowns", types: ["islescrown","isles"] },
+		{ name: "Both Banana Fairies in Creepy Castle", types: ["fairy","castle"] },
+		{ name: "Donkey Minecart GB", types: ["donkey","castle","race"] },
+		{ name: "250 Total Bananas With Donkey", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas","donkey"] },
+		{ name: "200 Bananas in Gloomy Galleon", types: ["gloomy","banana","gloomybananas"] },
+		{ name: "15 GBs", types: ["manybp","bp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "All 4 GB's in Llama Temple", types: ["aztec","manygb"] },
+		{ name: "100 Bananas for 1 Kong in Frantic Factory", types: ["factory","banana","factorybananas"] },
+		{ name: "100 Bananas for 1 Kong in Gloomy Galleon", types: ["gloomy","banana","gloomybananas"] }
+	];
+	bingoList[14] = [
+		{ name: "5 GBs in Fungi Forest", types: ["fungi","fungigb"] },
+		{ name: "All Banana Fairies in DK Isles", types: ["fairy","isles"] },
+		{ name: "All Blueprints in DK Isles", types: ["isles","bp","manybp","islesbp"] },
+		{ name: "All 5 Production Room GBs in Frantic Factory", types: ["factory","factorygb"] },
+		{ name: "1 GB for each Kong in Angry Aztec", types: ["aztec","aztecgb"] },
+		{ name: "2 Blueprints on each Kong", types: ["manybp","bp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "All Blueprints in Angry Aztec", types: ["aztec","bp","manybp","aztecbp"] },
+		{ name: "200 Bananas in Angry Aztec", types: ["aztec","banana","aztecbananas"] },
+		{ name: "1 GB for each Kong in Crystal Caves", types: ["cave","cavegb"] },
+		{ name: "2 Minecart Mayhem GBs", types: ["bonus"] }
+	];
+	bingoList[15] = [
+		{ name: "3 Banana Medals in Frantic Factory", types: ["factory","medal","banana","factorybananas"] },
+		{ name: "100 bananas for Any Kong in Fungi Forest", types: ["fungi","banana","fungibananas"] },
+		{ name: "Shoot 20 Banana Balloons", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "100 bananas for Any Kong in Crystal Caves", types: ["cave","banana","cavebananas"] },
+		{ name: "5 GBs in Creepy Castle", types: ["castle","castlegb"] },
+		{ name: "3 Donkey Banana Medals", types: ["medal","banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "10 GBs in Jungle Japes", types: ["japes","japesgb"] },
+		{ name: "350 Total Bananas", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "Both Car Races", types: ["tiny","race"] },
+		{ name: "All 4 GBs in Tiny Temple", types: ["aztecgb","aztec"] },
+	];
+	bingoList[16] = [
+		{ name: "All 5 GBs from 5 Door Ship", types: ["gloomy","gloomygb"] },
+		{ name: "13 Blueprints", types: ["bp","manybp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "250 Total Bananas With Diddy", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas","diddy"] },
+		{ name: "Both Beetle Slides", types: ["race"] },
+		{ name: "1 GB for each Kong in Fungi Forest", types: ["fungi","fungigb"] },
+		{ name: "All 3 Beaver Bother GBs", types: ["bonus","castle"] },
+		{ name: "100 bananas for Any Kong in Creepy Castle", types: ["castle","banana","castlebananas"] },
+		{ name: "3 Banana Medals in Angry Aztec", types: ["aztec","banana","aztecbananas"] },
+		{ name: "10 Banana Fairies", types: ["fairy"] },
+		{ name: "200 Bananas in Crystal Caves", types: ["cave","banana","cavebananas"] }
+	];
+	bingoList[17] = [
+		{ name: "1 GB per level", types: ["manylevel","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "All 5 GBs in 5 Door Igloo", types: ["cavegb","cave"] },
+		{ name: "Donkey's Banana Medal in Hideout Helm", types: ["donkey","helm","medal"] },
+		{ name: "50 Bananas in every level", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "All 5 GBs in 5 Door Cabin", types: ["cavegb","diddy","cave"] },
+		{ name: "3 Banana Medals in Gloomy Galleon", types: ["gloomy","medal","banana","gloomybananas"] },
+		{ name: "All 7 DK Isles Rainbow Coins", types: ["coin","isles","restrict_coin"] },
+		{ name: "All Blueprints in Fungi Forest", types: ["fungi","bp","manybp","fungibp"] },
+		{ name: "7 Tiny Blueprints", types: ["bp","tiny","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "1 GB for each Kong in Creepy Castle", types: ["castlegb","castle"] }
+	];
+	bingoList[18] = [
+		{ name: "10 Diddy GBs", types: ["diddy","bp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "12 Rainbow Coins", types: ["coin ","restrict_coin"] },
+		{ name: "3 Banana Medals in Crystal Caves", types: ["medal","banana","cavebananas","cave"] },
+		{ name: "16 Blueprints", types: ["bp","manybp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "250 Total Bananas With Chunky", types: ["chunky","banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "3 Diddy Banana Medals", types: ["diddy","medal","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "250 Total Bananas With Tiny", types: ["tiny","banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "250 Total Bananas With Lanky", types: ["lanky","banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "5 Boss Keys", types: ["key","manykey"] },
+		{ name: "2 GBs for each Kong in Jungle Japes", types: ["japesgb","manybp","japes"] }
+	];
+	bingoList[19] = [
+		{ name: "Open Crown Door in Helm", types: ["helm","japescrown","azteccrown","factorycrown","gloomycrown","fungicrown","cavecrown","castlecrown","islescrown","helmcrown"] },
+		{ name: "3 Chunky Banana Medals", types: ["banana","medal","chunky","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "3 Tiny Banana Medals", types: ["banana","medal","tiny","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "3 Lanky Banana Medals", types: ["banana","medal","lanky","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "200 Bananas in Fungi Forest", types: ["banana","fungibananas","fungi"] },
+		{ name: "75 Coins with any Kong", types: ["coin","restrict_coin"] },
+		{ name: "7 Chunky Blueprints", types: ["bp","chunky","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "7 Lanky Blueprints", types: ["bp","lanky","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "2 GBs for each Kong in Frantic Factory", types: ["factory","manybp","factorygb"] },
+		{ name: "3 Blueprints on each Kong", types: ["manybp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] }
+	];
+	bingoList[20] = [
+		{ name: "10 Chunky GBs", types: ["chunky","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "10 GBs in Frantic Factory", types: ["factory","factorygb"] },
+		{ name: "10 GBs in DK Isles", types: ["isles","islesgb"] },
+		{ name: "7 Diddy Blueprints", types: ["bp","diddy","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "Spawn K. Rool Ship", types: ["key3","key8","key","manykey"] },
+		{ name: "10 Lanky GBs", types: ["lanky","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "200 Bananas in Creepy Castle", types: ["banana","castlebananas","castle"] },
+		{ name: "50 Coins with any 3 Kongs", types: ["coin","restrict_coin"] },
+		{ name: "10 GBs in Gloomy Galleon", types: ["gloomy","galleongb"] },
+		{ name: "10 Tiny GBs", types: ["tiny","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] }
+	];
+	bingoList[21] = [
+		{ name: "10 GBs in Crystal Caves", types: ["cavegb","cave"] },
+		{ name: "7 Donkey Blueprints", types: ["bp","donkey","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "Nintendo Coin", types: ["factory","donkey"] },
+		{ name: "3 Banana Medals in Fungi Forest", types: ["banana","fungibananas","medal","fungi"] },
+		{ name: "Open K. Rool's Mouth", types: ["key7","key6","key","manykey"] },
+		{ name: "10 GBs in Angry Aztec", types: ["aztecgb","aztec"] },
+		{ name: "20 GBs", types: ["bp","manybp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "Banana Medal with Every Kong", types: ["banana","medal","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "3 GBs on each kong", types: ["manybp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "2 GBs for each Kong in Gloomy Galleon", types: ["gloomy","manybp","galleongb"] }
+	];
+	bingoList[22] = [
+		{ name: "Chunky's Banana Medal in Hideout Helm", types: ["helm","medal","chunky"] },
+		{ name: "All 4 R&D GBs in Frantic Factory", types: ["factorygb","factory"] },
+		{ name: "All 5 GBs from 5 Door Temple", types: ["aztecgb","aztec"] },
+		{ name: "500 Total Bananas", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "20 Blueprints", types: ["bp","manybp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "3 Banana Medals in Creepy Castle", types: ["banana","castlebananas","castle","medal"] },
+		{ name: "15 Donkey GBs", types: ["donkey","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "Activate All Purple Warps", types: ["manylevel","japeswarp","aztecwarp","factorywarp","gloomywarp","fungiwarp","cavewarp","castlewarp"] },
+		{ name: "2 GBs for each Kong in DK Isles", types: ["isles","manybp","islesgb"] },
+		{ name: "2 GBs for each Kong in Angry Aztec", types: ["aztec","manybp","aztecgb"] }
+	];
+	bingoList[23] = [
+		{ name: "10 GBs in Fungi Forest", types: ["fungigb","fungi"] },
+		{ name: "6 Boss Keys", types: ["key","manykey"] },
+		{ name: "Complete All 7 Baboon Blasts", types: ["donkey","manylevel","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "Complete DK phase of K. Rool Fight", types: ["key3","key8","key","manykey"] },
+		{ name: "10 GBs in Creepy Castle", types: ["castlegb","castle"] },
+		{ name: "2 GBs per level", types: ["manylevel","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "Activate All Green Warps", types: ["manylevel","japeswarp","aztecwarp","factorywarp","gloomywarp","fungiwarp","cavewarp","castlewarp"] },
+		{ name: "6 Battle Crowns", types: ["japescrown","azteccrown","factorycrown","gloomycrown","fungicrown","cavecrown","castlecrown","islescrown","helmcrown"] },
+		{ name: "2 GBs for each Kong in Crystal Caves", types: ["cavegb","cave","manybp"] },
+		{ name: "All banana medals for any level", types: ["banana","medal","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] }
+	];
+	bingoList[24] = [
+		{ name: "All 5 Crypt GBs in Castle", types: ["castle","castlegb"] },
+		{ name: "13 Banana Fairies", types: ["fairy","key8"] },
+		{ name: "4 GBs on each kong", types: ["manybp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "2 GBs for each Kong in Fungi Forest", types: ["fungigb","fungi"] },
+		{ name: "4 Blueprints on each Kong", types: ["bp","manybp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "300 Total Banana Coins", types: ["coin","restrict_coin"] },
+		{ name: "All 3 Minecart rides", types: ["race"] },
+		{ name: "Activate All Red Warps", types: ["manylevel","japeswarp","aztecwarp","factorywarp","gloomywarp","fungiwarp","cavewarp","castlewarp"] },
+		{ name: "Activate All Yellow Warps", types: ["manylevel","japeswarp","aztecwarp","factorywarp","gloomywarp","fungiwarp","cavewarp","castlewarp"] },
+		{ name: "10 Bonus Barrel GBs", types: ["bonus","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] }
+	];
+	bingoList[25] = [
+		{ name: "90 coins with one Kong", types: ["coin","restrict_coin"] },
+		{ name: "Complete Diddy's phase of K. Rool Fight", types: ["key3","key8","key","manykey"] },
+		{ name: "Complete 4 Coin-Collecting Courses", types: ["race"] },
+		{ name: "600 Total Bananas", types: ["banana","japesbananas","aztecbananas","factorybananas","gloomybananas","fungibananas","cavebananas","castlebananas"] },
+		{ name: "25 Blueprints", types: ["bp","manybp","japesbp","aztecbp","factorybp","gloomybp","fungibp","cavebp","castlebp","islesbp"] },
+		{ name: "2 GBs for Each Kong in Creepy Castle", types: ["castle","castlegb"] },
+		{ name: "15 Diddy GBs", types: ["diddy","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "Lanky's Medal in Helm", types: ["helm","medal","lanky"] },
+		{ name: "25 GBs", types: ["bp","manybp","japesgb","aztecgb","factorygb","gloomygb","fungigb","cavegb","castlegb","islesgb"] },
+		{ name: "Activate All Blue Warps", types: ["manylevel","japeswarp","aztecwarp","factorywarp","gloomywarp","fungiwarp","cavewarp","castlewarp"] }
+
+	];
