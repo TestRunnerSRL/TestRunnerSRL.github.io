@@ -1,12 +1,12 @@
 /* HTML button interaction scripts */
 
-var activeRow = '';
+var activeRow = [];
 
 function SetHover(i) {
   hex = document.getElementById("hex" + i);
   hex.childNodes[0].style.backgroundColor = "rgba(255,255,255,0.3)";
 
-  if (activeRow) {
+  if (activeRow.length > 0) {
     return;
   }
 
@@ -31,24 +31,36 @@ function SetHover(i) {
   }
 }
 
-function RowHover(row, override) {
-  if (activeRow && !override) {
+function RowHover(row) {
+  var lightlist = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+
+  if (!row && activeRow.length == 0) {
     return;
   }
 
-  if (activeRow != row) {
-    document.getElementById("hexheader" + row).style.backgroundColor = 'blue';    
+  if (row) {
+    if (activeRow.indexOf(row) == -1) {
+      document.getElementById("hexheader" + row).style.backgroundColor = 'blue';    
+    }
+
+    for (var r = 0; r < INDICES_PER_ROW[row].length; r++) {
+      lightlist[INDICES_PER_ROW[row][r]] = 1;
+    } 
   }
 
-  var lightlist = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  for (r = 0; r < INDICES_PER_ROW[row].length; r++) {
-    lightlist[INDICES_PER_ROW[row][r]] = 1;
+  for (var aRow = 0; aRow < activeRow.length; aRow++) {
+    for (var r = 0; r < INDICES_PER_ROW[activeRow[aRow]].length; r++) {
+      lightlist[INDICES_PER_ROW[activeRow[aRow]][r]] = 1;
+    }    
   }
-  
+
   for (i = 1; i <= 19; i++) {
-    if (lightlist[i] == 0) {
       hex = document.getElementById("hex" + i);
+    if (lightlist[i] == 0) {
       hex.childNodes[0].style.backgroundColor = "rgba(0,0,0,.5)";
+    } else {
+      hex.childNodes[0].style.backgroundColor = "";      
     }
   }
 }
@@ -56,7 +68,7 @@ function RowHover(row, override) {
 function ClearHover() {
   for (var key in INDICES_PER_ROW) {
     if (INDICES_PER_ROW.hasOwnProperty(key)) {
-      if (key != activeRow) {
+      if (activeRow.indexOf(key) == -1) {
         document.getElementById("hexheader" + key).style.backgroundColor = '';    
       }
     }
@@ -67,25 +79,19 @@ function ClearHover() {
     hex = document.getElementById("hex" + i);
     hex.childNodes[0].style.backgroundColor = "";
   }
-  if (activeRow) {
-    RowHover(activeRow, true);
-  }
 
+  RowHover();
 }
 
 function RowClick(row) {
-  if (row == activeRow) {
+  if (activeRow.indexOf(row) != -1) {
     document.getElementById("hexheader" + row).style.backgroundColor = '';
-    activeRow = '';
+    activeRow.splice(activeRow.indexOf(row), 1);
     ClearHover();
     return;
   }
 
-  if (activeRow) {
-    document.getElementById("hexheader" + activeRow).style.backgroundColor = '';    
-  }
-
-  activeRow = row;
+  activeRow.push(row);
   document.getElementById("hexheader" + row).style.backgroundColor = 'green';
   ClearHover();
 }
@@ -194,6 +200,78 @@ function clamp(num, min, max) {
   return num <= min ? min : num >= max ? max : num;
 }
 
+// This function checks if the specified event is supported by the browser.
+// Source: http://perfectionkills.com/detecting-event-support-without-browser-sniffing/
+function isEventSupported(eventName) {
+  var el = document.createElement('div');
+  eventName = 'on' + eventName;
+  var isSupported = (eventName in el);
+  if (!isSupported) {
+    el.setAttribute(eventName, 'return;');
+    isSupported = typeof el[eventName] == 'function';
+  }
+  el = null;
+  return isSupported;
+}
+
+function isFraction(num) {
+  if (!isNaN(num)) {
+    return true;
+  }
+
+  var part = num.split("/");
+  return ((part.length == 2) && (!isNaN(part[0])) && (!isNaN(part[1])));
+}
+
+function incFraction(num) {
+  if (!isNaN(num)) {
+    return "1/" + num;
+  }
+
+  var part = num.split("/");
+  if (part.length != 2) {
+    return "NaF";
+  }
+
+  if (part[0] - part[1] < 0) {
+    part[0]++;
+  }
+
+  return part.join("/");
+}
+
+function decFraction(num) {
+  if (!isNaN(num)) {
+    return num;
+  }
+
+  var part = num.split("/");
+  if (part.length != 2) {
+    return "NaF";
+  }
+
+  if (part[0] > 1) {
+    part[0]--;
+    return part.join("/");
+  }
+  else {
+    return part[1];
+  }
+}
+
+function isWhole(num) {
+  if (!isNaN(num)) {
+    return false;
+  }
+
+  var part = num.split("/");
+  if (part.length != 2) {
+    return false;
+  }
+
+  return part[0] == part[1];
+}
+
 window.onload = LoadPage;
 function LoadPage() {
   var parts = window.location.search.substr(1).split("&");
@@ -216,6 +294,78 @@ function LoadPage() {
   game += '.js';
   document.getElementById("bingogame").value = game;
   LoadGoalListJS(game, GenerateBoard);
+
+  $(".hexheaderIn").on( {
+    'mouseleave':function() { ClearHover(); }
+  });
+
+
+  // Check which wheel event is supported. Don't use both as it would fire each event 
+  // in browsers where both events are supported.
+  var wheelEvent = isEventSupported('mousewheel') ? 'mousewheel' : 'wheel';
+
+  // Now bind the event to the desired element
+  $('.hexIn').on(wheelEvent, function(e) {
+    var oEvent = e.originalEvent;
+    var delta = -oEvent.deltaY || oEvent.wheelDelta;
+
+    var goal = this.childNodes[1].innerText.split(' ');
+    var counter = false;
+    if (delta > 0) {
+      // Scrolled up
+      if (hasClass(this, 'SelectedRedHex')) {
+        removeClass(this, 'SelectedRedHex');
+        CheckBadRow();
+        return;
+      }
+
+      for (var i = 0; i < goal.length; i++) {
+        if (isFraction(goal[i])) {
+          var num = incFraction(goal[i]);
+          if (num != "NaF" && num != goal[i]) {
+            goal[i] = num;
+            counter = true;
+
+            if (isWhole(num)) {
+              addClass(this, 'SelectedGreenHex');
+            } else {
+              removeClass(this, 'SelectedGreenHex');
+            }
+            removeClass(this, 'SelectedRedHex');
+            CheckBadRow();
+          }
+        }
+      }
+      if (!counter) {
+        addClass(this, 'SelectedGreenHex');
+        removeClass(this, 'SelectedRedHex');
+        CheckBadRow();
+      }
+    } else {
+      // Scrolled down
+      for (var i = 0; i < goal.length; i++) {
+        if (isNaN(goal[i]) && isFraction(goal[i])) {
+          var num = decFraction(goal[i]);
+          if (num != "NaF" && num != goal[i]) {
+            goal[i] = num;
+            counter = true;
+            removeClass(this, 'SelectedGreenHex');
+            removeClass(this, 'SelectedRedHex');
+            CheckBadRow();
+          }
+        }
+      }
+      if (!counter) {
+        if (hasClass(this, 'SelectedGreenHex')) {
+          removeClass(this, 'SelectedGreenHex');
+        } else {
+          addClass(this, 'SelectedRedHex');
+        }
+        CheckBadRow();
+      }
+    }
+    this.childNodes[1].innerText = goal.join(' ');  
+  });
 }
 
 function LoadGoalListJS(file, callback) {
@@ -346,7 +496,7 @@ function GenerateBoard() {
     removeClass(hex, 'SelectedRedHex');
   }
 
-  activeRow = '';
+  activeRow = [];
   ClearHover();
   
   txtRNG = document.getElementById("rngseed");
