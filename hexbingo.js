@@ -488,6 +488,8 @@ function CalculateStatistic(arr) {
   };
 }
 
+
+
 var bingoBoard = []; //the board itself stored as an array first
 function GenerateBoard() {
   for (i = 1; i <= 19; i++) {
@@ -498,7 +500,27 @@ function GenerateBoard() {
 
   activeRow = [];
   ClearHover();
-  
+
+  if (bingoList['rules']) {
+    $("#rulesbutton").show();
+    var xmlString = bingoList['rules']
+      , parser = new DOMParser()
+      , doc = parser.parseFromString(xmlString, "text/html");
+    document.getElementById("rules").replaceChild(doc.firstChild, document.getElementById("rules").childNodes[1]);
+  } else {
+    $("#rulesbutton").hide();
+  }
+
+  if (bingoList['tips']) {
+    $("#tipsbutton").show(); 
+    var xmlString = bingoList['tips']
+      , parser = new DOMParser()
+      , doc = parser.parseFromString(xmlString, "text/html");
+    document.getElementById("tips").replaceChild(doc.firstChild, document.getElementById("tips").childNodes[1]);
+  } else {
+    $("#tipsbutton").hide();
+  }
+
   txtRNG = document.getElementById("rngseed");
   rngseed = txtRNG.value
   if (rngseed == undefined || rngseed == '') {

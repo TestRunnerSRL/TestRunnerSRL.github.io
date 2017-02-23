@@ -13,6 +13,9 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
   <body bgcolor="black" onresize='fitToParent(".hexspan")'>
+    <div id="rules" style="display:none; position:fixed; height:70%; z-index: 2; color:white; background-color:rgba(0, 0, 0, 0.7); border: 1px solid grey; border-radius: 5px; margin: 50px; padding: 20px"><b>Rules</b><span></span></div>
+    <div id="tips" style="display:none; position:fixed; height:70%; z-index: 2; color:white; background-color:rgba(0, 0, 0, 0.7); border: 1px solid grey; border-radius: 5px; margin: 50px; padding: 20px"><b>Tips</b><span></span></div>
+
     <div height="30px" align="center" style="padding-right: 8%; padding-left: 2%; padding-bottom: 10px; min-width: 500px; height: 20px">
       <Span style="padding: 5px; font-size: 1.5em">
         <Span class="TextR">H</Span><Span class="TextO">e</Span><Span class="TextY">x</Span><Span class="TextG">B</Span><Span class="TextB">i</Span><Span class="TextP">n</Span><Span class="TextR">g</Span><Span class="TextO">o</Span>
@@ -39,6 +42,8 @@
       </select>
       <input id="rngseed" type="text" name="rngseed" size="10" placeholder="Enter Seed">
       <button type="submit" onclick="GenerateBoard()">Generate Board</button>
+      <button id="rulesbutton" hidden="true" onmouseenter="$('#rules').show()" onmouseleave="$('#rules').hide()">Rules</button>
+      <button id="tipsbutton" hidden="true" onmouseenter="$('#tips').show()" onmouseleave="$('#tips').hide()">Tips</button>
     </div>
     <div id="hexContainer">
       <div style="position:absolute; width:100%">
@@ -166,7 +171,7 @@
     <div style="overflow: hidden; position: fixed; bottom: 0; height: 20px; width: 100%">
       <table style="padding:0; margin:-5; min-width: 500px; width: 100%; height: 20px">
         <tr width="100%">
-          <td style="color:grey; padding-left: 10px;">Version 1.45 Developed by TestRunner 2017</td>
+          <td style="color:grey; padding-left: 10px;">Version 1.46 Developed by TestRunner 2017</td>
           <td style="text-align:center; color:lightgrey; width: 10em">Seed: <b id="seeddisplay" style="color:orange">1234567890</b></td>
           <td style="width: 7em"><button style="float:right; margin:2px; margin-right: 20px; padding:0px"
           onclick="alert('Click a hex to mark completed.\nRight-click a hex to mark undesired.\nYou can also use the scroll wheel to set individual goal progress\n\nAny row is valid, but shorter rows will have harder goals.')">HexBingo Info</button></td>

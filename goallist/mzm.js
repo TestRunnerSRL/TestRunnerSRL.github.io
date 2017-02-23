@@ -140,3 +140,35 @@ bingoList[25] = [
   { name: "11 Chozo items", types: ["chozoitems"] },
   { name: "Enter 19 Save rooms", types: ["saverooms", "tourian"] }
 ];
+bingoList['rules'] = `      
+  <ul>
+    <li>Enter Tourian timing ends after the tourian cutscnes</li>
+    <li>The Giant Sidehoppers that spawn after Screw Attack are three new ones</li>
+    <li>Chozo items are items in a chozo ball. Morph and Power Grip are not chozo items</li>
+    <li>You do not need to collect the maps or save for their goals, just enter their rooms.</li>
+    <li>The Ship is not a save room</li>
+  </ul>`;
+bingoList['tips'] = `
+  <table border=1>
+    <tr>
+      <td>Area</td><td>Missiles</td><td>Supers</td><td>E-Tanks</td><td>Chozo</td><td>Saves</td>
+    </tr>
+    <tr>
+      <td>Brinstar</td><td>10</td><td>1</td><td>3</td><td>3</td><td>4</td>
+    </tr>
+    <tr>
+      <td>Kraid</td><td>8</td><td>0</td><td>2</td><td>2</td><td>5</td>
+    </tr>
+    <tr>
+      <td>Norfair</td><td>11</td><td>2</td><td>1</td><td>4</td><td>5</td>
+    </tr>
+    <tr>
+      <td>Ridley</td><td>13</td><td>3</td><td>3</td><td>1</td><td>4</td>
+    </tr>
+    <tr>
+      <td>Crateria</td><td>3</td><td>1</td><td>0</td><td>1</td><td>0</td>
+    </tr>
+    <tr>
+      <td>Tourian</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td>
+    </tr>
+  </table>`;
