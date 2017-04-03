@@ -1,4 +1,5 @@
-bingoList[1] = [
+ var bingoList = []; //number represents difficulty 
+ bingoList[1] = [
     {"name": "Obtain 3 Koroks on the Plateau", "types": ["Plateau", "Korok"] },
     {"name": "Obtain the Warm Doublet", "types": ["Cold Resistance", "Armor"] },
     {"name": "Complete the 'Watch Out for the Flowers' Shrine Quest", "types": ["Shrine", "Shrine Quest", "Dueling Peaks"] },
@@ -167,4 +168,4 @@ bingoList[25] = [
     {"name": "Pay all Great Fairies", "types": ["Akkala", "Gerudo", "Rito", "Rupee", "Great Fairy"] },
     {"name": "Get the Master Sword", "types": ["Woodland", "Korok Forest", "Heart"] },
     {"name": "Beat Ganon", "types": ["Central","Hyrule Castle", "Ganon"] }
-]
+];
