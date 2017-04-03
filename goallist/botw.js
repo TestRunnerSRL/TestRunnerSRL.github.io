@@ -1,6 +1,5 @@
 var bingoList = []; //number represents difficulty 
 bingoList[1] = [
-    [
     {"name": "Obtain 3 Koroks on the Plateau", "types": ["Plateau", "Korok"] },
     {"name": "Obtain the Warm Doublet", "types": ["Cold Resistance", "Armor", "Hateno"] },
     {"name": "Give Beedle a Beetle", "types": ["Stable"] },
