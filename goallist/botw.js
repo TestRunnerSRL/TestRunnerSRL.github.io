@@ -2,9 +2,9 @@ var bingoList = []; //number represents difficulty
 bingoList[1] = [
     [
     {"name": "Obtain 3 Koroks on the Plateau", "types": ["Plateau", "Korok"] },
-    {"name": "Obtain the Warm Doublet", "types": ["Cold Resistance", "Armor"] },
-    {"name": "Give Beedle a Beetle", "types": ["Horse"] },
-    {"name": "Register a Horse", "types": ["Horse"] },
+    {"name": "Obtain the Warm Doublet", "types": ["Cold Resistance", "Armor", "Hateno"] },
+    {"name": "Give Beedle a Beetle", "types": ["Stable"] },
+    {"name": "Register a Horse", "types": ["Stable"] },
     {"name": "Complete the 'Watch Out for the Flowers' Shrine Quest", "types": ["Shrine", "Shrine Quest", "Dueling Peaks"] },
     {"name": "Open 2 Bokoblin Camp Chests", "types": ["Plateau", "Monster"] },
     {"name": "Save a Traveler in Peril", "types": ["Monster"] }
@@ -25,7 +25,7 @@ bingoList[3] = [
     {"name": "Kill a Hinox", "types": ["Rupee", "Miniboss", "Monster"] },
     {"name": "Complete a Minor Test of Strength Shrine", "types": ["Shrine"] },
     {"name": "Pay 1 Great Fairy", "types": ["Akkala", "Wasteland", "Tabantha", "Rupee", "Great Fairy"] },
-    {"name": "Activate the Faron Tower", "types": ["Lake Hylia", "Faron", "Tower"] }
+    {"name": "Activate the Faron Tower", "types": ["Faron", "Tower"] }
 ];
 bingoList[4] = [
     {"name": "Cook a Chilly meal", "types": ["Cooking", "Heat Resistance"] },
@@ -102,7 +102,7 @@ bingoList[11] = [
     {"name": "Find 5 Koroks in the Hebra Tower Region", "types": ["Korok", "Hebra", "Cold Resistance"] },
     {"name": "Complete the Vortex Shrine Quest", "types": ["Akkala", "Shrine", "Shrine Quest"] },
     {"name": "Upgrade the Soldier's set", "types": ["Rupee", "Armor", "Monster", "Great Fairy"] },
-    {"name": "Register the Royal Horse", "types": ["Centeral", "Central Hyrule", "Horse", "Stamina"] }
+    {"name": "Register the Royal Horse", "types": ["Centeral", "Central Hyrule", "Stable", "Stamina"] }
 ];
 bingoList[12] = [
     {"name": "Complete 3 Shrines in the Eldin Tower Region", "types": ["Eldin", "Shrine", "Fire Resistance"] },
@@ -140,7 +140,7 @@ bingoList[15] = [
 bingoList[16] = [
     {"name": "Complete the 'Robbie's Research' Side Quest", "types": ["Side Quest", "Akkala", "Hateno"] },
     {"name": "Upgrade All Runes", "types": ["Side Quest", "Upgrade", "Beginning Story", "Hateno"] },
-    {"name": "Register the Giant Horse", "types": [  "South West", "Horse", "Stamina"] },
+    {"name": "Register the Giant Horse", "types": ["South West", "Stable", "Stamina"] },
     {"name": "Get the Zora Set", "types": ["Lanayru", "Zora's Domain", "Armor", "Story"] },
     {"name": "Get the Flamebreaker Set", "types": ["Eldin", "Story", "Armor", "Rupee", "Fire Resistance"] }
 ];
@@ -172,7 +172,7 @@ bingoList[20] = [
     {"name": "Fill out 20 monsters in the Compendium", "types": ["Camera", "Compendium", "Story"] },
     {"name": "Fill out 20 equipment in the Compendium", "types": ["Camera", "Compendium", "Story"] },
     {"name": "Complete 5 Side Quests", "types": ["Side Quest"] },
-		{"name": "Upgrade the Zora Set", "types": ["Lanayru", "Zora's Domain", "Armor", "Monster", "Great Fairy"] }
+    {"name": "Upgrade the Zora Set", "types": ["Lanayru", "Zora's Domain", "Armor", "Monster", "Great Fairy"] }
 ];
 bingoList[21] = [
     {"name": "Buy the Bokoblin Mask from Kilton", "types": ["Monster Part"] },
