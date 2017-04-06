@@ -50,7 +50,7 @@
       <button id="rulesbutton" hidden="true" onmouseenter="$('#rules').show()" onmouseleave="$('#rules').hide()">Rules</button>
       <button id="tipsbutton" hidden="true" onmouseenter="$('#tips').show()" onmouseleave="$('#tips').hide()">Tips</button>
     </div>
-    <div style="position:absolute; overflow:hidden; width:100%; color:white">
+    <div id="rowContainer" hidden="true" style="position:absolute; overflow:hidden; width:100%; color:white">
       <table border=1 style="color:white; text-align: center; top:0;bottom:0; padding:0; padding-top:0">
         <tr><td id="row1" class="rowcell" onmouseover="SetRowHover(1)" onmouseout="ClearRowHover()" onclick="hexLClick(this, 2)" oncontextmenu="hexRClick(this); return false"><span class="rowspan">Cell 1<span></td></tr>
         <tr><td id="row2" class="rowcell" onmouseover="SetRowHover(2)" onmouseout="ClearRowHover()" onclick="hexLClick(this, 3)" oncontextmenu="hexRClick(this); return false"><span class="rowspan">Cell 2<span></td></tr>
@@ -185,7 +185,7 @@
     <div style="overflow: hidden; position: fixed; bottom: 0; height: 20px; width: 100%">
       <table style="padding:0; margin:-5; min-width: 500px; width: 100%; height: 20px">
         <tr width="100%">
-          <td style="color:grey; padding-left: 10px;">Version 1.52 Developed by TestRunner 2017</td>
+          <td style="color:grey; padding-left: 10px;">Version 1.53 Developed by TestRunner 2017</td>
           <td style="text-align:center; color:lightgrey; width: 10em">Seed: <b id="seeddisplay" style="color:orange">1234567890</b></td>
           <td style="width: 7em"><button style="float:right; margin:2px; margin-right: 20px; padding:0px"
           onclick="alert('Click a hex to mark completed.\nRight-click a hex to mark undesired.\nYou can also use the scroll wheel to set individual goal progress\n\nAny row is valid, but shorter rows will have harder goals.')">HexBingo Info</button></td>
