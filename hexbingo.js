@@ -633,6 +633,14 @@ function GenerateBoard() {
 
   Math.seedrandom(rngseed);
 
+  if (bingotype == "hex") {
+    $("#rowContainer").hide();
+    $("#hexContainer").show();
+  }
+  else if (bingotype == "mission") {
+    $("#rowContainer").show();
+    $("#hexContainer").hide();
+  }
 
   var bingoGenerator = new BingoGenerator(bingoList, 
     {
