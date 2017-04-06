@@ -12,7 +12,7 @@
 
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-  <body bgcolor="black" onresize='fitToParent(".hexspan")'>
+  <body bgcolor="black" onresize='fitToParent(".hexspan"); fitToParent(".rowspan")'>
     <div id="rules" style="display:none; position:fixed; height:70%; z-index: 2; color:white; background-color:rgba(0, 0, 0, 0.7); border: 1px solid grey; border-radius: 5px; margin: 50px; padding: 20px"><b>Rules</b><span></span></div>
     <div id="tips" style="display:none; position:fixed; height:70%; z-index: 2; color:white; background-color:rgba(0, 0, 0, 0.7); border: 1px solid grey; border-radius: 5px; margin: 50px; padding: 20px"><b>Tips</b><span></span></div>
 
@@ -20,6 +20,10 @@
       <Span style="padding: 5px; font-size: 1.5em">
         <Span class="TextR">H</Span><Span class="TextO">e</Span><Span class="TextY">x</Span><Span class="TextG">B</Span><Span class="TextB">i</Span><Span class="TextP">n</Span><Span class="TextR">g</Span><Span class="TextO">o</Span>
       </Span>
+      <select id="bingotype">
+        <option value="hex">HexBingo</option>
+        <option value="mission">Mission Bingo</option>
+      </select>
       <select id="bingogame" onchange="LoadGoalListJS()">
         <option value="oot.js">Zelda: Ocarina of Time</option>
         <option value="mm.js">Zelda: Majora's Mask</option>
@@ -46,7 +50,16 @@
       <button id="rulesbutton" hidden="true" onmouseenter="$('#rules').show()" onmouseleave="$('#rules').hide()">Rules</button>
       <button id="tipsbutton" hidden="true" onmouseenter="$('#tips').show()" onmouseleave="$('#tips').hide()">Tips</button>
     </div>
-    <div id="hexContainer">
+    <div style="position:absolute; overflow:hidden; width:100%; color:white">
+      <table border=1 style="color:white; text-align: center; top:0;bottom:0; padding:0; padding-top:0">
+        <tr><td id="row1" class="rowcell" onmouseover="SetRowHover(1)" onmouseout="ClearRowHover()" onclick="hexLClick(this, 2)" oncontextmenu="hexRClick(this); return false"><span class="rowspan">Cell 1<span></td></tr>
+        <tr><td id="row2" class="rowcell" onmouseover="SetRowHover(2)" onmouseout="ClearRowHover()" onclick="hexLClick(this, 3)" oncontextmenu="hexRClick(this); return false"><span class="rowspan">Cell 2<span></td></tr>
+        <tr><td id="row3" class="rowcell" onmouseover="SetRowHover(3)" onmouseout="ClearRowHover()" onclick="hexLClick(this, 4)" oncontextmenu="hexRClick(this); return false"><span class="rowspan">Cell 3<span></td></tr>
+        <tr><td id="row4" class="rowcell" onmouseover="SetRowHover(4)" onmouseout="ClearRowHover()" onclick="hexLClick(this, 5)" oncontextmenu="hexRClick(this); return false"><span class="rowspan">Cell 4<span></td></tr>
+        <tr><td id="row5" class="rowcell" onmouseover="SetRowHover(5)" onmouseout="ClearRowHover()" onclick="hexLClick(this)" oncontextmenu="hexRClick(this); return false"><span class="rowspan">Cell 5<span></td></tr>
+      </table>
+    </div>
+    <div id="hexContainer" hidden="true">
       <div style="position:absolute; width:100%">
         <ul id="hexheaderGrid">
           <li class="hexheader">
@@ -172,7 +185,7 @@
     <div style="overflow: hidden; position: fixed; bottom: 0; height: 20px; width: 100%">
       <table style="padding:0; margin:-5; min-width: 500px; width: 100%; height: 20px">
         <tr width="100%">
-          <td style="color:grey; padding-left: 10px;">Version 1.51 Developed by TestRunner 2017</td>
+          <td style="color:grey; padding-left: 10px;">Version 1.52 Developed by TestRunner 2017</td>
           <td style="text-align:center; color:lightgrey; width: 10em">Seed: <b id="seeddisplay" style="color:orange">1234567890</b></td>
           <td style="width: 7em"><button style="float:right; margin:2px; margin-right: 20px; padding:0px"
           onclick="alert('Click a hex to mark completed.\nRight-click a hex to mark undesired.\nYou can also use the scroll wheel to set individual goal progress\n\nAny row is valid, but shorter rows will have harder goals.')">HexBingo Info</button></td>

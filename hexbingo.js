@@ -31,6 +31,18 @@ function SetHover(i) {
   }
 }
 
+function SetRowHover(i) {
+  hex = document.getElementById("row" + i);
+  hex.childNodes[0].style.backgroundColor = "rgba(255,255,255,0.3)";
+}
+
+function ClearRowHover() {
+  for (i = 1; i <= 5; i++) {
+    hex = document.getElementById("row" + i);
+    hex.childNodes[0].style.backgroundColor = "";
+  }
+}
+
 function RowHover(row) {
   var lightlist = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
@@ -118,9 +130,14 @@ function removeClass(el, className) {
   }
 }
 
-function hexLClick(hex) {
+function hexLClick(hex, next) {
   if (!hasClass(hex, 'SelectedGreenHex')) {
     addClass(hex, 'SelectedGreenHex');
+
+    if (next) {
+      $("#row" + next).show();   
+      fitToParent(".rowspan")
+    }
   } else {
     removeClass(hex, 'SelectedGreenHex');
   }
@@ -293,6 +310,13 @@ function LoadPage() {
   }
   game += '.js';
   document.getElementById("bingogame").value = game;
+
+  var type = $_GET.type;
+  if (type == undefined || type == "") {
+    type = 'hex';
+  }
+  document.getElementById("bingotype").value = type;
+
   LoadGoalListJS(game, GenerateBoard);
 
   $(".hexheaderIn").on( {
@@ -366,6 +390,71 @@ function LoadPage() {
     }
     this.childNodes[1].innerText = goal.join(' ');  
   });
+  // Now bind the event to the desired element
+  $('.rowcell').on(wheelEvent, function(e) {
+    var oEvent = e.originalEvent;
+    var delta = -oEvent.deltaY || oEvent.wheelDelta;
+
+    var goal = this.childNodes[0].innerText.split(' ');
+    var counter = false;
+    if (delta > 0) {
+      // Scrolled up
+      if (hasClass(this, 'SelectedRedHex')) {
+        removeClass(this, 'SelectedRedHex');
+        CheckBadRow();
+        return;
+      }
+
+      for (var i = 0; i < goal.length; i++) {
+        if (isFraction(goal[i])) {
+          var num = incFraction(goal[i]);
+          if (num != "NaF" && num != goal[i]) {
+            goal[i] = num;
+            counter = true;
+
+            if (isWhole(num)) {
+              $("#row" + (parseInt(this.id[3]) + 1)).show(); 
+              fitToParent(".rowspan")
+            } else {
+              removeClass(this, 'SelectedGreenHex');
+            }
+            removeClass(this, 'SelectedRedHex');
+            CheckBadRow();
+          }
+        }
+      }
+      if (!counter) {
+        addClass(this, 'SelectedGreenHex');
+        $("#row" + (parseInt(this.id[3]) + 1)).show(); 
+        fitToParent(".rowspan")
+        removeClass(this, 'SelectedRedHex');
+        CheckBadRow();
+      }
+    } else {
+      // Scrolled down
+      for (var i = 0; i < goal.length; i++) {
+        if (isNaN(goal[i]) && isFraction(goal[i])) {
+          var num = decFraction(goal[i]);
+          if (num != "NaF" && num != goal[i]) {
+            goal[i] = num;
+            counter = true;
+            removeClass(this, 'SelectedGreenHex');
+            removeClass(this, 'SelectedRedHex');
+            CheckBadRow();
+          }
+        }
+      }
+      if (!counter) {
+        if (hasClass(this, 'SelectedGreenHex')) {
+          removeClass(this, 'SelectedGreenHex');
+        } else {
+          addClass(this, 'SelectedRedHex');
+        }
+        CheckBadRow();
+      }
+    }
+    this.childNodes[0].innerText = goal.join(' ');  
+  });
 }
 
 function LoadGoalListJS(file, callback) {
@@ -432,7 +521,7 @@ var fitToParent = function(selector) {
                     minSize = currSize;
                 }
             }
-            //minSize = 0.1;
+            //minSize = .1;
             elem.css('right', 'auto');
             elem.css('overflow-wrap', 'normal');
             do {
@@ -497,6 +586,11 @@ function GenerateBoard() {
     removeClass(hex, 'SelectedGreenHex');
     removeClass(hex, 'SelectedRedHex');
   }
+  for (i = 1; i <= 5; i++) {
+    hex = document.getElementById("row" + i);    
+    removeClass(hex, 'SelectedGreenHex');
+    removeClass(hex, 'SelectedRedHex');
+  }
 
   activeRow = [];
   ClearHover();
@@ -530,14 +624,14 @@ function GenerateBoard() {
   txtRNG.value = '';
   document.getElementById("seeddisplay").innerText = rngseed;
 
+  var bingotype = document.getElementById("bingotype").value;
 
   window.history.replaceState(null, null,  
     "?seed=" + rngseed + 
-    "&game=" + document.getElementById("bingogame").value.split('.')[0]);
+    "&game=" + document.getElementById("bingogame").value.split('.')[0] +
+    "&type=" + bingotype);
 
   Math.seedrandom(rngseed);
-  
-
 
 
   var bingoGenerator = new BingoGenerator(bingoList, 
@@ -549,19 +643,42 @@ function GenerateBoard() {
   var card = false;
   var iterations = 0;
   while (!card && iterations < 10) {
-    card = bingoGenerator.makeCard();
+    if (bingotype == "hex"){
+      card = bingoGenerator.makeCard();
+    } 
+    else if (bingotype == "mission") {
+      card = bingoGenerator.makeMissions();
+    }
     iterations++;
   }
   card["meta"] = {
     iterations: iterations
   };
 
-  for (i = 1; i <= 19; i++) {
-    document.getElementById("hex" + i).childNodes[1].innerText = 
-      card[i].name;
-  }
 
-  fitToParent('.hexspan');
+  var populationOrder = [1, 5, 10, 15, 19]
+
+  if (bingotype == "hex") {
+    for (i = 1; i <= 19; i++) {
+        document.getElementById("hex" + i).childNodes[1].innerText = 
+          card[i].name;
+    }
+    fitToParent('.hexspan');
+  }
+  else if (bingotype == "mission") {
+    var elem;
+    document.getElementById("row1").childNodes[0].innerText = card[1].name;
+    document.getElementById("row2").childNodes[0].innerText = card[5].name;
+    document.getElementById("row3").childNodes[0].innerText = card[10].name;
+    document.getElementById("row4").childNodes[0].innerText = card[15].name;
+    document.getElementById("row5").childNodes[0].innerText = card[19].name;
+    $("#row2").hide();
+    $("#row3").hide();
+    $("#row4").hide();
+    $("#row5").hide();
+
+    fitToParent('.rowspan');
+  }
 }
 
 
@@ -800,6 +917,60 @@ var BingoGenerator = function(bingoList, options) {
   Math.seedrandom(this.seed);
 };
 
+BingoGenerator.prototype.makeMissions = function() {
+
+  var populationOrder = [1, 5, 10, 15, 19];
+  this.bingoBoard = [];
+  for (var i = 1; i <= 5; i++) {
+    var difficulty = 1 + ((i - 1) * 5) + Math.floor(Math.random() * 5);
+    this.bingoBoard[populationOrder[i - 1]] = {
+      difficulty: difficulty,
+      desiredTime: difficulty * this.timePerDifficulty
+    };
+  }
+
+  for (var i = 1; i <= 5; i++) {
+    var position = populationOrder[i - 1];
+
+    result = false;
+    var desiredDifficulty = this.bingoBoard[position].difficulty;
+    var desiredTime = desiredDifficulty * this.timePerDifficulty;
+    for (var offset = this.initialOffset; offset <= this.maximumOffset; offset++) {
+      var minTime = desiredTime - offset;
+      var maxTime = desiredTime + offset;
+      var goalsAtTime = this.getGoalsInTimeRange(minTime, maxTime).shuffled();
+
+      for (var j = 0; j < goalsAtTime.length; j++) {
+        var goal = goalsAtTime[j];
+        if (this.hasGoalOnBoard(goal)) {
+          continue;
+        }
+
+        result = {
+          goal: goal,
+        };
+        offset = this.maximumOffset + 1;
+        break;
+      }
+    }
+
+    if (!result || !result.goal) {
+      return false;
+    }
+
+    this.bingoBoard[position].types = result.goal.types;
+    this.bingoBoard[position].subtypes = result.goal.subtypes;
+    this.bingoBoard[position].rowtypes = result.goal.rowtypes;
+    this.bingoBoard[position].name = result.goal[this.language] || result.goal.name;
+    this.bingoBoard[position].id = result.goal.id;
+    this.bingoBoard[position].time = result.goal.time;
+    this.bingoBoard[position].goal = result.goal;
+    this.bingoBoard[position].synergy = result.synergy;
+  }
+
+  return this.bingoBoard;  
+};
+
 BingoGenerator.prototype.makeCard = function() {
   this.bingoBoard = this.generateMagicSquare();
   var populationOrder = this.generatePopulationOrder();
@@ -928,7 +1099,7 @@ BingoGenerator.prototype.getGoalsInTimeRange = function(minTime, maxTime) {
 
 BingoGenerator.prototype.hasGoalOnBoard = function(goal) {
   for (var i = 1; i <= 19; i++) {
-    if (this.bingoBoard[i].id === goal.id) {
+    if (this.bingoBoard[i] && this.bingoBoard[i].id === goal.id) {
       return true;
     }
   }

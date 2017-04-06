@@ -92,6 +92,7 @@ bingoList[4] = [
   { name: "Activate Wasteland Tower", types: ["Tower","Wasteland",] },
   { name: "Activate Ridgeland Tower", types: ["Tower","Ridgeland",] },
   { name: "4 Side Quests", types: ["Side Quest",] },
+  { name: "Any Rod weapon", types: ["Equipment","Wizzrobe",] },
 ];
 bingoList[5] = [
   { name: "6 Hateno Koroks", types: ["Korok","Hateno",] },
@@ -181,7 +182,6 @@ bingoList[7] = [
   { name: "'Crowned Beast' Shrine Quest", types: ["Shrine","Shrine Quest","Hateno","Horse",] },
   { name: "'A Landscape of a Stable' Shrine Quest", types: ["Shrine","Shrine Quest","Eldin",] },
   { name: "Any 'Zora' Equipment item", types: ["Equipment",] },
-  { name: "Any Rod weapon", types: ["Equipment","Wizzrobe",] },
   { name: "Any Ice-typed Equipment item", types: ["Equipment",] },
   { name: "Any Fairy Tonic", types: ["Cooking",] },
   { name: "Glazed Meat", types: ["Cooking",] },
@@ -237,8 +237,6 @@ bingoList[9] = [
   { name: "9 Ridgeland Koroks", types: ["Korok","Ridgeland",] },
   { name: "9 Lanayru Koroks", types: ["Korok. Lanayru",] },
   { name: "Climbing Boots", types: ["Clothes","Climbing Gear","Hateno",] },
-  { name: "Snow Boots", types: ["Clothes","Boots","Side Quest","Gerudo",] },
-  { name: "'Sunshroom Sensing' Side Quest", types: ["Side Quest","Hateno","Camera",] },
   { name: "'What's for Dinner?' Side Quest", types: ["Side Quest","Faron",] },
   { name: "'The Secret Club's Secret' Side Quest", types: ["Side Quest","Wasteland","Radiant Gear","Desert Gear",] },
   { name: "'Tools of the Trade' Side Quest", types: ["Side Quest","Wasteland","Gems",] },
@@ -291,7 +289,6 @@ bingoList[11] = [
   { name: "Stealth Chest Guard ★", types: ["Clothes","Stealth Gear","Rupee","Great Fairy",] },
   { name: "Stealth Tights ★", types: ["Clothes","Stealth Gear","Rupee","Great Fairy",] },
   { name: "Full Stealth Set", types: ["Clothes","Stealth Gear","Rupee","Dueling Peaks",] },
-  { name: "Climbing Gear", types: ["Clothes","Climbing Gear","Hateno",] },
   { name: "Barbarian Helm", types: ["Clothes","Barbarian Gear","Akkala",] },
   { name: "'A Gift for My Beloved' Side Quest", types: ["Side Quest","Hateno",] },
   { name: "3 Hateno Shrines", types: ["Shrine","Hateno",] },
@@ -343,6 +340,8 @@ bingoList[12] = [
   { name: "Obtain a Material from Farosh", types: ["Dragon",] },
   { name: "3 Lanayru Shrines", types: ["Shrine","Lanayru",] },
   { name: "10 Side Quests", types: ["Side Quest",] },
+  { name: "'Sunshroom Sensing' Side Quest", types: ["Side Quest","Hateno","Camera",] },
+  { name: "Snow Boots", types: ["Clothes","Boots","Side Quest","Gerudo","Camera",] },
 ];
 bingoList[13] = [
   { name: "12 Hateno Koroks", types: ["Korok","Hateno",] },
@@ -410,7 +409,6 @@ bingoList[15] = [
   { name: "'Three Giant Brothers' Shrine Quest", types: ["Shrine","Shrine Quest","Faron","Hinox",] },
   { name: "'The Bird in the Mountains' Shrine Quest", types: ["Shrine","Shrine Quest","Hebra","Cold Resistance",] },
   { name: "Hebra Labyrinth 'Trial on the Cliff' Shrine Quest", types: ["Shrine","Shrine Quest","Hebra","Cold Resistance","Barbarian Gear",] },
-  { name: "'The Ceremonial Song' Shrine Quest", types: ["Shrine","Shrine Quest","Lanayru",] },
   { name: "Windcleaver", types: ["Equipment","Wasteland",] },
   { name: "Kill a Lynel", types: ["Miniboss","Lynel",] },
   { name: "Kill a Molduga", types: ["Miniboss","Molduga","Wasteland",] },
@@ -468,9 +466,8 @@ bingoList[18] = [
   { name: "Full Desert Voe Set", types: ["Clothes","Desert Gear","Wasteland","Rupee",] },
   { name: "Flamebreaker Helm ★", types: ["Clothes","Flame Gear","Eldin","Rupee","Great Fairy",] },
   { name: "Zora Greaves ★", types: ["Clothes","Zora Gear","Great Fairy","Lizalfos","Camera",] },
-  { name: "Climbing Gear ★", types: ["Clothes","Climbing Gear","Great Fairy",] },
   { name: "Radiant Mask ★", types: ["Clothes","Radiant Gear","Rupee","Gems","Great Fairy",] },
-  { name: "Snow Boots ★", types: ["Clothes","Boots","Side Quest","Great Fairy",] },
+  { name: "Snow Boots ★", types: ["Clothes","Boots","Side Quest","Great Fairy","Camera",] },
   { name: "'Slated for Upgrades' Side Quest", types: ["Side Quest","Hateno","Camera",] },
   { name: "'A Shady Customer' Side Quest", types: ["Side Quest","Akkala","Kilton","Camera",] },
   { name: "12 Shrines", types: ["Shrine",] },
@@ -479,6 +476,7 @@ bingoList[18] = [
   { name: "Hylian Shield", types: ["Miniboss","Hinox","Hyrule Castle",] },
   { name: "Mount the Lord of the Mountain", types: ["Horse","Ridgeland","Stamina",] },
   { name: "Buy a House", types: ["Hateno","Rupee",] },
+  { name: "A Major Test of Strength Shrine", types: ["Shrine","Guardian",] },
 ];
 bingoList[19] = [
   { name: "15 Wasteland Koroks", types: ["Korok","Wasteland",] },
@@ -488,7 +486,6 @@ bingoList[19] = [
   { name: "Radiant Tights ★", types: ["Clothes","Radiant Gear","Rupee","Gems","Great Fairy",] },
   { name: "Amber Earrings ★", types: ["Clothes","Gems","Rupee","Great Fairy",] },
   { name: "'Stalhorse: Pictured!' Side Quest", types: ["Side Quest","Hebra","Camera",] },
-  { name: "A Major Test of Strength Shrine", types: ["Shrine","Guardian",] },
   { name: "'The Stolen Heirloom' Shrine Quest", types: ["Shrine","Shrine Quest","Dueling Peaks","Heirloom","Camera",] },
   { name: "'Brother's Roast' Shrine Quest", types: ["Shrine","Shrine Quest","Eldin",] },
   { name: "1 Divine Beast Main Quest", types: ["Divine Beast",] },
@@ -497,13 +494,13 @@ bingoList[19] = [
   { name: "Kill Coliseum Lynel", types: ["Miniboss","Lynel","Central Hyrule",] },
   { name: "Activate 6 Towers", types: ["Tower",] },
   { name: "13 Side Quests", types: ["Side Quest",] },
+  { name: "Climbing Gear", types: ["Clothes","Climbing Gear","Hateno",] },
 ];
 bingoList[20] = [
   { name: "15 Gerudo Koroks", types: ["Korok","Gerudo",] },
   { name: "15 Hebra Koroks", types: ["Korok","Hebra","Cold Resistance",] },
   { name: "15 Eldin Koroks", types: ["Korok","Eldin",] },
   { name: "Full Zora Set", types: ["Clothes","Zora Gear","Lanayru","Camera",] },
-  { name: "Full Climber's Set", types: ["Clothes","Climbing Gear",] },
   { name: "Barbarian Helm ★", types: ["Clothes","Barbarian Gear","Great Fairy","Lynel",] },
   { name: "Barbarian Armor ★", types: ["Clothes","Barbarian Gear","Great Fairy","Lynel",] },
   { name: "Topaz Earrings ★", types: ["Clothes","Gems","Rupee","Great Fairy",] },
@@ -539,6 +536,7 @@ bingoList[21] = [
   { name: "Spring-Loaded Hammer", types: ["Equipment","Kilton",] },
   { name: "7 Heart Containers", types: ["Shrine","Heart",] },
   { name: "Upgrade All Runes", types: ["Camera","Rune Upgrade","Hateno",] },
+  { name: "'The Ceremonial Song' Shrine Quest", types: ["Shrine","Shrine Quest","Lanayru",] },
 ];
 bingoList[22] = [
   { name: "'Riddles of Hyrule' Side Quest", types: ["Side Quest","Woodland","Lynel",] },
@@ -552,7 +550,6 @@ bingoList[22] = [
 ];
 bingoList[23] = [
   { name: "40 Koroks", types: ["Korok",] },
-  { name: "Full Barbarian Set", types: ["Clothes","Barbarian Gear",] },
   { name: "'Face the Frost Talus' Side Quest", types: ["Side Quest","Tabantha","Hebra","Cold Resistance",] },
   { name: "'The Giant of Ralis Pond' Side Quest", types: ["Side Quest","Lanayru","Hinox",] },
   { name: "15 Shrines", types: ["Shrine",] },
@@ -560,6 +557,7 @@ bingoList[23] = [
   { name: "Daruk's Protection", types: ["Divine Beast","Eldin",] },
   { name: "Collect 6 Picture Memories", types: ["Camera",] },
   { name: "Remake a Champion's Weapon or Shield", types: ["Equipment","Divine Beast","Gems",] },
+  { name: "Climbing Gear ★", types: ["Clothes","Climbing Gear","Great Fairy",] },
   { name: "Activate 8 Towers", types: ["Tower",] },
 ];
 bingoList[24] = [
@@ -570,6 +568,7 @@ bingoList[24] = [
   { name: "Urbosa's Fury", types: ["Divine Beast","Wasteland",] },
   { name: "Beat Ganon", types: ["Hyrule Castle",] },
   { name: "Activate 9 Towers", types: ["Tower",] },
+  { name: "Full Climber's Set", types: ["Clothes","Climbing Gear",] },
 ];
 bingoList[25] = [
   { name: "50 Koroks", types: ["Korok",] },
@@ -580,6 +579,7 @@ bingoList[25] = [
   { name: "'The Undefeated Champ' Shrine Quest", types: ["Shrine","Shrine Quest","Wastelands",] },
   { name: "Activate 10 Towers", types: ["Tower",] },
   { name: "15 Side Quests", types: ["Side Quest",] },
+  { name: "Full Barbarian Set", types: ["Clothes","Barbarian Gear",] },
 ];
 
 $(function() { srl.bingo(bingoList, 5); });

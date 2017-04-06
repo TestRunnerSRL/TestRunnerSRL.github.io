@@ -1,3 +1,36 @@
+.rowcell {
+  display: block;  
+  width: calc(100vw - 16px);
+  min-width: 200px;
+  height: calc((96vh - 60px) / 5);
+  min-height: 100px;
+  color: #fff;
+  overflow: hidden;
+  margin: 0;
+  padding:2%;
+  border-color: white;
+  box-sizing:border-box;
+  background-color:#101010;
+  top:0;
+  bottom:0;
+}
+
+.rowcell:hover {
+ cursor:pointer;
+}
+
+.rowspan {
+  overflow-wrap: break-word;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  margin:0;
+  padding:0; padding-top:0;
+  text-align: center;
+  display: inline;
+}
+
 .SelectedGreenHex {
   background: repeating-radial-gradient(
     circle,
@@ -40,6 +73,7 @@
   padding: 0;
   padding-top: 0;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 
 .hex {
