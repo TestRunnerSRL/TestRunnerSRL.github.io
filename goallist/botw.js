@@ -362,7 +362,7 @@ bingoList[13] = [
   { name: "Take a Selfie with Sidon", types: ["Lanayru","Camera",] },
   { name: "Obtain a Material from Dinraal", types: ["Dragon",] },
   { name: "Finish Basic Shield Surfing Minigame", types: ["Minigame","Hebra","Cold Resistance",] },
-  { name: "'By Firefly's Light' Side Quest", types: ["Side Quest","Dueling Peaks","Heirloom",”Camera”,] },
+  { name: "'By Firefly's Light' Side Quest", types: ["Side Quest","Dueling Peaks","Heirloom","Camera",] },
 ];
 bingoList[14] = [
   { name: "25 Koroks", types: ["Korok",] },
