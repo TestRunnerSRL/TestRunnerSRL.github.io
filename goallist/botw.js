@@ -63,7 +63,6 @@ bingoList[4] = [
   { name: "Climber's Bandanna", types: ["Clothes","Climbing Gear","Dueling Peaks",] },
   { name: "'Flown the Coop' Side Quest", types: ["Side Quest","Dueling Peaks","Heirloom",] },
   { name: "2 Koko Cooking Side Quests", types: ["Side Quest","Dueling Peaks",] },
-  { name: "'By Firefly's Light' Side Quest", types: ["Side Quest","Dueling Peaks","Heirloom",] },
   { name: "'Arrows of Burning Heat' Side Quest", types: ["Side Quest","Dueling Peaks",] },
   { name: "'The Apple of My Eye' Side Quest", types: ["Side Quest","Tabantha",] },
   { name: "A Minor Test of Strength Shrine", types: ["Shrine","Guardian",] },
@@ -363,6 +362,7 @@ bingoList[13] = [
   { name: "Take a Selfie with Sidon", types: ["Lanayru","Camera",] },
   { name: "Obtain a Material from Dinraal", types: ["Dragon",] },
   { name: "Finish Basic Shield Surfing Minigame", types: ["Minigame","Hebra","Cold Resistance",] },
+  { name: "'By Firefly's Light' Side Quest", types: ["Side Quest","Dueling Peaks","Heirloom",”Camera”,] },
 ];
 bingoList[14] = [
   { name: "25 Koroks", types: ["Korok",] },
